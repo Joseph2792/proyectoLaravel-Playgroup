@@ -1,10 +1,9 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+@extends('layouts.base')
+@section('title', 'Registro')
+@section('main-content')
+<!--contenido de las secciones: login y registro home, amigos, faq, perfil-->
+<div class="container-main">
+        <section id="registro" class="flexregistry">
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
@@ -70,8 +69,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
-        </div>
-    </div>
+        </section>
 </div>
+<!--fin del contenido-->
 @endsection
