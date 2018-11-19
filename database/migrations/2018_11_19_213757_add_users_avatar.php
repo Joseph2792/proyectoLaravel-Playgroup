@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Users extends Migration
+class AddUsersAvatar extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class Users extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('avatar');
+          $table->string('avatar');
         });
     }
 
@@ -25,8 +25,9 @@ class Users extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropcolumn('avatar');
+        Schema::table('avatar', function (Blueprint $table)
+        {
+          $table->dropcolumn('avatar');
         });
     }
 }
