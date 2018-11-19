@@ -18,7 +18,7 @@
 <body>
     @include('layouts.navbar')
     
-    <div class="container-fluid">
+    <div class="contenedor container-fluid">
         @yield('main-content')
     </div>
 

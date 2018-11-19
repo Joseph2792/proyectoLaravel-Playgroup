@@ -1,8 +1,8 @@
 @extends('layout.base')
 
 @section('main-content')
-<section class="row">
-    <div class="col-sm-12 col-md-6">
+<div class="cont-main-FAQ">
+    <section class="col-sm-12 col-md-6">
         <h1>¿Necesitas Ayuda?</h1>
         <div>
             <form action="get">
@@ -12,7 +12,6 @@
                 </div>
             </form>
         </div>
-
         <div class="accordion" id="accordionExample">
             <div class="card">
                 <div class="card-header" id="headingOne">
@@ -58,7 +57,6 @@
                 </div>
             </div>
         </div>
-
         <div class="paginado-faq" aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
                 <li class="page-item disabled">
@@ -72,6 +70,6 @@
                 </li>
             </ul>
         </div>
-    </div>
-</section>
+    </section>
+</div>
 @endsection
