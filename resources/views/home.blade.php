@@ -4,7 +4,6 @@
  <section class="row ">
         <!-- posteos -->
         <div class="col-12 col-sm-12 col-md-8 col-lg-4">
-
             <div class="photo-profile-home">
               <a class="cont-photo-profile" href="">
                   <img class="photo" src="img/man.jpg" alt="">
