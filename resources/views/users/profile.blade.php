@@ -2,7 +2,8 @@
 @section('title', 'Perfil')
 @section('main-content')
 <!--contenido de las secciones: login y registro home, amigos, faq, perfil-->
-<section class="cont-perfil row">
+<div class="contenedor container-fluid">
+        <section class="cont-perfil row">
                 <div class="cont-foto col-12">
                         <div class="img-portada" style="background-image: url('img/portada.jpg');">                
                         </div>
@@ -166,5 +167,7 @@
                 <span class="numb"></span>
             </a>
         </div>
+
+</div>
 <!--fin del contenido-->
 @endsection

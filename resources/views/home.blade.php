@@ -1,7 +1,8 @@
-@extends('layouts.base')
+@extends('layouts.app')
 @section('title', 'Home')
 @section('main-content')
- <section class="row ">
+<div class="contenedor container-fluid">
+   <section class="row ">
         <!-- posteos -->
         <div class="col-12 col-sm-12 col-md-8 col-lg-4">
             <div class="photo-profile-home">
@@ -136,4 +137,8 @@
           <span class="numb"></span>
         </a>
       </div>
+
+
+
+</div>
 @endsection

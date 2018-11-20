@@ -3,7 +3,7 @@
 <!--navbar mobile-->
     <nav id="nav-mobile" class="cont-navLogin navbar navbar-expand-lg navbar-light">
         <div class="cont-logo-mobile">
-            <img src="img/logo.svg" alt="logo">
+            <img src="{{ asset('img/logo.svg') }}" alt="logo">
         </div>
         <form action="get">
             <div class="cont-search-mobile">
@@ -40,7 +40,7 @@
                     <span>Cerrar Sesión</span>
                 </a>
             <!--end de if de logueo-->
-                <a class="ico-nav" href="login-Registro.php" title="Login">
+                <a class="ico-nav" href="{{ route('login') }}" title="Login">
                     <i class="fa fa-sign-in-alt"></i>
                     <span>Login</span>
                 </a>
@@ -55,7 +55,7 @@
 <!--navbar desktop-->
     <nav id="nav-desk" class="cont-navLogin">
         <div class="cont-logo">
-            <img src="img/logo.svg" alt="logo">
+            <img src="{{ asset('img/logo.svg') }}" alt="logo">
         </div>
         <div class="cont-nav">
             <div class="cont-iconos">
@@ -87,7 +87,7 @@
                     <span>Ayuda</span>
                 </a>
                 <!--poner if de logueo-->
-                    <a class="ico-nav" href="logout.php" title="logout">
+                    <a class="ico-nav" href="{{ route('logout') }}" title="logout">
                         <i class="fas fa-sign-out-alt"></i>
                         <span>Cerrar Sesión</span>
                     </a>
@@ -96,10 +96,13 @@
                         <span>Name User</span>
                     </a>
                 <!--poner if de logueo-->
-                    <a class="ico-nav" href="login-Registro.php" title="Login">
+                <!-- Authentication Links -->
+                @guest
+                    <a class="ico-nav" href="{{ route('login') }}" title="Login">
                         <i class="fa fa-sign-in-alt"></i>
                         <span>Iniciar Sesión</span>
                     </a>
+                @endguest
 			    <!--poner if de logueo-->
             </div>
         </div>

@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('title', 'Registro')
 @section('main-content')
-<!--contenido de las secciones: login y registro home, amigos, faq, perfil-->
+<!--
 <div class="container-main">
         <section id="registro" class="flexregistry">
                 <div class="card-header">{{ __('Register') }}</div>
@@ -70,6 +70,137 @@
                     </form>
                 </div>
         </section>
+</div>
+-->
+<!--contenido de las secciones: login y registro home, amigos, faq, perfil-->
+<div class="container-main">
+    <section id="registro" class="flexregistry">
+        <form action="" method="post" enctype="multipart/form-data">
+            <h2>Registrate</h2>
+            <div class="row">
+                <div class="formlogin-control col-sm-12 col-md-6">
+                    <label for="Fullname">Nombre y Apellido</label>
+                    <input
+                        type="text"
+                        name="registerFullName"
+                        value=""
+                        placeholder="FullName"
+                        class="form-control"
+                    >
+                    
+                    <div class="invalid-feedback">
+                        
+                    </div>
+                    
+                </div>
+
+                <div class="formlogin-control col-sm-12 col-md-6">
+                    <label>Usuario</label>
+                    <input
+                        type="text"
+                        name="registerNickname"
+                        value=""
+                        placeholder="Username"
+                        class="form-control"
+                    >
+                    
+                        <div class="invalid-feedback">
+                            
+                        </div>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="formlogin-control col-sm-12 col-md-6">
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        name="registerEmail"
+                        value=""
+                        placeholder="usuario@email.com"
+                        class="form-control"
+                    >
+                    
+                        <div class="invalid-feedback">
+                            
+                        </div>
+                    
+                </div>
+                <div class="formlogin-control col-sm-12 col-md-6">
+                    <label>Nacionalidad</label>
+                    <select name="registerCountry"
+                        class="form-control"
+                        >
+                        <option value="">Elegí un país</option>
+                            
+                        </option>
+                        
+                    </select>
+                    
+                        <div class="invalid-feedback">
+                            
+                        </div>
+                    
+
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="formlogin-control col-sm-12 col-md-6">
+                    <label>Contraseña</label>
+                    <input
+                        type="password"
+                        name="registerPassword"
+                        placeholder="Password"
+                        class="form-control"
+                    >
+                    
+                        <div class="invalid-feedback">
+                            
+                        </div>
+                    
+                </div>
+
+                <div class="formlogin-control col-sm-12 col-md-6">
+                    <label>Repetir Contraseña</label>
+                    <input
+                        type="password"
+                        name="registerRePassword"
+                        placeholder="Password"
+                        class="form-control"
+                    >
+                    
+                        <div class="invalid-feedback">
+                            
+                        </div>
+                    
+
+                </div>
+            </div>
+            <div class="row">
+            <div class="formlogin-control col-sm-12 col-md-6">
+                <label><b>Imagen de perfil</b></label>
+                <div class="custom-file">
+                    <input
+                        type="file"
+                        class="custom-file-input"
+                        name="registerAvatar"
+                    >
+                    <label class="custom-file-label update-img">Elegí una foto...</label>
+                    
+                        <div class="invalid-feedback">
+                            
+                        </div>
+                    
+                </div>
+                </div>
+            </div>
+            <div class="cont-btn-register">
+                <input class="submit" type="submit" value="Registrate"/><br>
+            </div>
+
+        </form>
+    </section>
 </div>
 <!--fin del contenido-->
 @endsection
