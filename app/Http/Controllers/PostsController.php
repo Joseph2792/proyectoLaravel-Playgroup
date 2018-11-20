@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Post;
+
 class PostsController extends Controller
 {
     /**
@@ -24,7 +26,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('home');
+        return view('posts.createPost');        // en esta vista está el form de creación de post
     }
 
     /**
@@ -35,7 +37,12 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new Post;                       // instancio un objeto Post
+        Post::create($request->all());          // le pido todos los inputs de la vista createPost, donde tengo el form de crear nuevo post
+        $post->save();                          // guardo
+
+        return redirect('home')->with(compact('post'));  // redirijo a Home, donde están todos los posts
+
     }
 
     /**
@@ -46,7 +53,10 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+
+        return redirect('COMPLETAR CON LA VISTA')            // redirijo a la vista del id del post en particular.
+
     }
 
     /**
@@ -57,7 +67,9 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);        //busco el post que quiero modificar
+
+        return view('posts.editPost')->with(compact('post'));  //llevo a la vista de edit, pero voy a modificar los datos recien con la función de update
     }
 
     /**
@@ -69,7 +81,13 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Post::find($id);
+
+        $post->content = $request->input('content'); //voy a capturar lo que el usuario haya cargado en el campo "content"
+                                                    // VER SI HAY MAS CAMPOS QUE CAPTURAR!!!
+        $post->save();
+
+        return redirect()->route('home');
     }
 
     /**
