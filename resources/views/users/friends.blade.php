@@ -1,5 +1,5 @@
 @extends('layouts.base')
-@section('title', 'Login')
+@section('title', 'Amigos')
 @section('main-content')
 <!--contenido de las secciones: login y registro home, amigos, faq, perfil-->
 <div class="container-main">
