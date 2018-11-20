@@ -1,35 +1,33 @@
-/*noramalice*/
 * {
 	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Roboto', Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	background-color: #f5f5f5;
+}
+.contenedor{
+	margin-top: 50px;
+	padding: 30px 100px;
 }
 ul {
 	list-style: none;
 	padding: 0;
 }
 a{
-	text-decoration: none;
+	text-decoration: none;	
+	color: #000;
 }
-
-input{
-	
+a:hover{
+	text-decoration: none;
+	color: #000;
 }
 li a i{
 	font-size: 25px;
 	color: white;
 	margin-right: 12px;
- }
-
-body{
-	/* font-family: 'Comic Sans MS'; */
-	font-family: 'Roboto', Arial, Helvetica, sans-serif;
-	font-size: 16px;
-	background-color: #e4e4e4;
-}
-.contenedor{
-	margin-top: 50px;
-	padding-top: 30px;
-}
-
+	}
 /*-----barra de navegacion-------------------------------------------*/
 
 header{
@@ -280,7 +278,47 @@ header{
   }
   
 /*------------------------inicio estilos de la home--------------*/
+.home{
+	display: flex;
+	flex-direction: row-reverse;
+}
+.photo-profile-home{
+	border: 1px solid #3f94a1;
+    background: #fff;
+    height: 63px;
+    padding: 10px;
+    margin-top: 50px;
+	border-radius: 5px;
+	width: 100%;
+	position: relative;
+}
+.cont-photo-profile{
+	position: absolute;
+    left: 15px;
+    top: -50px;
+}
+.name-home{
+	position: absolute;
+	left: 40%;
+}
+.photo{
+	width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.cont-info{
+	border: 1px solid #3f94a1;
+    background: #fff;
+    height: auto;
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
 
+/**/
+.posts-home{
+	margin-top: 50px;
+}
 .post-icons {
 	width: 30px;
 }
@@ -506,6 +544,9 @@ header{
 	color: #3f94a1 !important;
 }
 /*-----------mi perfil----------------------------*/
+.post-profile{
+	margin-top: 15px;
+}
 .cont-datos{
     border: 1px solid #3f94a1;
     border-radius: 5px;
@@ -765,6 +806,6 @@ footer{
 }
 @media (min-width: 1200px) {
     .photo-profile{
-        left: 43%;
+        left: 44%;
     }
 }

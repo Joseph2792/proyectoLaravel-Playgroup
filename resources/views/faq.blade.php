@@ -1,5 +1,5 @@
 @extends('layout.base')
-
+@section('title', 'Ayuda')
 @section('main-content')
 <div class="cont-main-FAQ">
     <section class="col-sm-12 col-md-6">

@@ -1,5 +1,6 @@
 
 <header class="col-12 fixed-top">
+<!--navbar mobile-->
     <nav id="nav-mobile" class="cont-navLogin navbar navbar-expand-lg navbar-light">
         <div class="cont-logo-mobile">
             <img src="img/logo.svg" alt="logo">
@@ -17,11 +18,10 @@
         </button>
         <div class="collapse navbar-collapse cont-nav-mobile" id="navMobile">
             <div class="cont-icon-nav">
-            <?php if ( isLogged() ) : ?>
+            <!--poner if de logueo-->
                 <a class="ico-nav" href="perfil.php" title="Mi Perfil">
-                    <img class="user-photo-nav" src="data/avatars/<?= isset($user['avatar'])? $user['avatar']: 'default.svg' ?>" alt="">
-                    <span><?= isset($user['nickname'])? $user['nickname']: 'User Default'  ?></span>                                        
-                    
+                    <img class="user-photo-nav" src="{{ asset('img/man.jpg') }}" alt="">
+                    <span>Name User</span>
                 </a>
                 <a class="ico-nav" href="index.php" title="Home">
                     <i class="fa fa-home"></i>
@@ -39,12 +39,12 @@
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Cerrar Sesión</span>
                 </a>
-            <?php else : ?>
+            <!--end de if de logueo-->
                 <a class="ico-nav" href="login-Registro.php" title="Login">
                     <i class="fa fa-sign-in-alt"></i>
                     <span>Login</span>
                 </a>
-            <?php endif; ?>
+            <!--poner if de logueo-->
                 <a class="ico-nav" href="FAQ.php" data-toggle="tooltip" data-placement="bottom" title="Preguntas Frecuentes">
                     <i class="fa fa-question-circle"></i>
                     <span>Ayuda</span>
@@ -52,7 +52,7 @@
             </div>
         </div>
     </nav>
-
+<!--navbar desktop-->
     <nav id="nav-desk" class="cont-navLogin">
         <div class="cont-logo">
             <img src="img/logo.svg" alt="logo">
@@ -67,7 +67,7 @@
                         </button>
                     </div>
                 </form>
-                <?php if ( isLogged() ) : ?>
+                <!--poner if de logueo-->
                 <a class="ico-nav" href="index.php" title="Home">
                     <i class="fa fa-home"></i>
                     <span>Inicio</span>
@@ -80,27 +80,27 @@
                     <i class="fas fa-users"></i>
                     <span>Amigos</span>
                 </a>
-                <?php endif; ?>
+                <!--end de if de logueo-->
 
                 <a class="ico-nav" href="FAQ.php" data-toggle="tooltip" data-placement="bottom" title="Preguntas Frecuentes">
                     <i class="fa fa-question-circle"></i>
                     <span>Ayuda</span>
                 </a>
-                <?php if ( isLogged() ) : ?>
+                <!--poner if de logueo-->
                     <a class="ico-nav" href="logout.php" title="logout">
                         <i class="fas fa-sign-out-alt"></i>
                         <span>Cerrar Sesión</span>
                     </a>
                     <a class="ico-nav" href="perfil.php" title="Mi Perfil">
-                        <img class="user-photo-navdesk" src="data/avatars/<?= isset($user['avatar'])? $user['avatar']: 'default.svg' ?>" alt="">
-                        <span><?= isset($user['nickname'])? $user['nickname']: 'User Default' ?></span>
+                        <img class="user-photo-navdesk" src="{{ asset('img/man.jpg') }}" alt="">
+                        <span>Name User</span>
                     </a>
-                <?php else : ?>
+                <!--poner if de logueo-->
                     <a class="ico-nav" href="login-Registro.php" title="Login">
                         <i class="fa fa-sign-in-alt"></i>
                         <span>Iniciar Sesión</span>
                     </a>
-			    <?php endif; ?>
+			    <!--poner if de logueo-->
             </div>
         </div>
     </nav>
