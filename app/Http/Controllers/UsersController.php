@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
+
 class UsersController extends Controller
 {
     /**
@@ -13,7 +15,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::all();
+
+        return view('home')->with(compact('user'));
     }
 
     /**
@@ -23,7 +27,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('auth.register');
     }
 
     /**
@@ -34,7 +38,12 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User;
+
+        $user = User::create($request->all());
+        $user->save();
+
+        return redirect('welcome');
     }
 
     /**
@@ -45,7 +54,9 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+
+        return redirect('users.profile')->with(compact('user'));
     }
 
     /**
@@ -56,7 +67,9 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+
+        return redirect('users.editProfile')->with(compact('user'));
     }
 
     /**
@@ -68,7 +81,15 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+
+        $user->name = $request->input('name');
+        $user->name = $request->input('email');
+        $user->name = $request->input('password');  //voy a capturar lo que el usuario haya cargado en estos campos pq estaban como fillable
+                                                    // VER SI HAY MAS CAMPOS QUE CAPTURAR!!!
+        $user->save();
+
+        return redirect('welcome');
     }
 
     /**

@@ -15,8 +15,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-        return view('home')->with(compact('posts'));
+        $post = Post::all();
+        return view('home')->with(compact('post'));
     }
 
     /**
@@ -55,7 +55,7 @@ class PostsController extends Controller
     {
         $post = Post::find($id);
 
-        return redirect('COMPLETAR CON LA VISTA')            // redirijo a la vista del id del post en particular.
+        return redirect('COMPLETAR CON LA VISTA');            // redirijo a la vista del id del post en particular.
 
     }
 
@@ -87,7 +87,7 @@ class PostsController extends Controller
                                                     // VER SI HAY MAS CAMPOS QUE CAPTURAR!!!
         $post->save();
 
-        return redirect()->route('home');
+        return redirect('home');
     }
 
     /**
@@ -98,6 +98,9 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+
+        return redirect('posts.profile');
     }
 }
