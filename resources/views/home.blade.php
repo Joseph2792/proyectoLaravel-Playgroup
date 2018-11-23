@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.base')
 @section('title', 'Home')
 @section('main-content')
 <div class="contenedor container-fluid">

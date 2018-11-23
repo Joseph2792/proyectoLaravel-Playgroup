@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('title', 'Registro')
 @section('main-content')
-<!--
+
 <div class="container-main">
         <section id="registro" class="flexregistry">
                 <div class="card-header">{{ __('Register') }}</div>
@@ -71,7 +71,7 @@
                 </div>
         </section>
 </div>
--->
+
 <!--contenido de las secciones: login y registro home, amigos, faq, perfil-->
 <div class="container-main">
     <section id="registro" class="flexregistry">
