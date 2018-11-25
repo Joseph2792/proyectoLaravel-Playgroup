@@ -19,9 +19,10 @@
         <div class="collapse navbar-collapse cont-nav-mobile" id="navMobile">
             <div class="cont-icon-nav">
             <!--poner if de logueo-->
+            @guest    
                 <a class="ico-nav" href="perfil.php" title="Mi Perfil">
                     <img class="user-photo-nav" src="{{ asset('img/man.jpg') }}" alt="">
-                    <span>Name User</span>
+                    <span>user</span>
                 </a>
                 <a class="ico-nav" href="index.php" title="Home">
                     <i class="fa fa-home"></i>
@@ -35,20 +36,28 @@
                     <i class="fas fa-users"></i>
                     <span>Amigos</span>
                 </a>
-                <a class="ico-nav" href="logout.php" title="logout">
+                <a class="ico-nav" href="{{ route('logout') }}" title="logout"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Cerrar Sesión</span>
                 </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+
+            @else
             <!--end de if de logueo-->
                 <a class="ico-nav" href="{{ route('login') }}" title="Login">
                     <i class="fa fa-sign-in-alt"></i>
                     <span>Login</span>
                 </a>
-            <!--poner if de logueo-->
+         
                 <a class="ico-nav" href="FAQ.php" data-toggle="tooltip" data-placement="bottom" title="Preguntas Frecuentes">
                     <i class="fa fa-question-circle"></i>
                     <span>Ayuda</span>
                 </a>
+                @endguest
+
             </div>
         </div>
     </nav>
@@ -87,13 +96,18 @@
                     <span>Ayuda</span>
                 </a>
                 <!--poner if de logueo-->
-                    <a class="ico-nav" href="{{ route('logout') }}" title="logout">
+                    <a class="ico-nav" href="{{ route('logout') }}" title="logout"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="fas fa-sign-out-alt"></i>
                         <span>Cerrar Sesión</span>
                     </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+
                     <a class="ico-nav" href="perfil.php" title="Mi Perfil">
                         <img class="user-photo-navdesk" src="{{ asset('img/man.jpg') }}" alt="">
-                        <span>Name User</span>
+                        <span>user</span>
                     </a>
                 <!--poner if de logueo-->
                 <!-- Authentication Links -->

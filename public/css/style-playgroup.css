@@ -162,17 +162,15 @@ header{
 	padding: 3px 0 !important;
 }
 .container-main {
-	padding-top: 50px;
-	display: flex;
-	flex-wrap: wrap;
-	align-items: flex-start;
-	justify-content: center;
-	background-image: url(../img/balonfutbol.jpg);
-	background-color: white;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-  
+    background-image: url(../img/balonfutbol.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-top: 50px;
+    display: flex;
+    justify-items: center;
+	align-items: center;  
+	height: 100vh;
   }
   .containermain-flex{
 	padding: 10px;
@@ -184,7 +182,7 @@ header{
   
   .flexlogin{
 	border:none;
-	margin: 10px;
+	margin: auto;
 	padding: 10px;
 	display: flex;
 	flex-wrap: wrap;
@@ -200,7 +198,7 @@ header{
   .flexregistry{
 	width: 60%;
 	border:none;
-	margin: 10px;
+	margin: auto;
 	padding: 10px;
 	display: flex;
 	flex-wrap: wrap;

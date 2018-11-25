@@ -71,52 +71,50 @@
 </div>
 -->
 <!--login de playgroup-->
-<div class="container-main">
-    <section class="containermain-flex">
-        <section class="flexlogin">
-            <form action="{{ route('login') }}" method="post">
-            @csrf
-                    <h2>Iniciar sesión</h2>
+<div class="container-main container-fluid">
+    <section class="flexlogin">
+        <form action="{{ route('login') }}" method="post">
+        @csrf
+                <h2>Iniciar sesión</h2>
 
-                    <div class="formlogin-control">
-                    <input 
-                        class="form-control"
-                        type="text" name="email" placeholder="Email" value=""
-                    >
-                    
-                        <div class="invalid-feedback">
-                            
-                        </div>
-                    
+                <div class="formlogin-control">
+                <input 
+                    class="form-control"
+                    type="text" name="email" placeholder="Email" value=""
+                >
+                
+                    <div class="invalid-feedback">
+                        
                     </div>
+                
+                </div>
 
-                    <div class="formlogin-control">
-                    <input 
-                        class="form-control>"
-                        name="password" placeholder="Password" type="password"
-                    >
-                    
-                        <div class="invalid-feedback">
-                            
-                        </div>
-                    
+                <div class="formlogin-control">
+                <input 
+                    class="form-control>"
+                    name="password" placeholder="Password" type="password"
+                >
+                
+                    <div class="invalid-feedback">
+                        
                     </div>
+                
+                </div>
 
-                    <div class="rememberButtom">
-                    <label for="remember">
-                    <input checked='' name="remember" type="checkbox"/>
-                    Recordar password.</label>
-                    </div>                     
+                <div class="rememberButtom">
+                <label for="remember">
+                <input checked='' name="remember" type="checkbox"/>
+                Recordar password.</label>
+                </div>                     
 
-                    <input class="submit" type="submit" value="Ingresar"/><br>
-                    <a class="forgotPass" href='#'>Olvidaste tu contraseña?</a><br>
+                <input class="submit" type="submit" value="Ingresar"/><br>
+                <a class="forgotPass" href='#'>Olvidaste tu contraseña?</a><br>
 
-                    <button class="btnFb">Conectarse con Facebook</button>
-                    @if (Route::has('register'))
-                    <a class="forgotPass" href="{{ route('register') }}">Ir a Registrarme</a>
-                    @endif
-            </form>
-        </section>
+                <button class="btnFb">Conectarse con Facebook</button>
+                @if (Route::has('register'))
+                <a class="forgotPass" href="{{ route('register') }}">Ir a Registrarme</a>
+                @endif
+        </form>
     </section>
 </div>
 @endsection
