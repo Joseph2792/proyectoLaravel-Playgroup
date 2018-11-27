@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Posts extends Migration
+class CreateTeamUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class Posts extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('team_user', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('team_id')->unsigned();
+            $table->foreign('team_id')->references('id')->on('teams');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->text('content');
-            $table->integer('likes_count')->unsigned()->nullable();
-            $table->integer('comment_id');
-            $table->string('icon');
-            $table->string('image');
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ class Posts extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('team_user');
     }
 }
