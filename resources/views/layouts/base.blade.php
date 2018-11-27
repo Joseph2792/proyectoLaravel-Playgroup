@@ -20,11 +20,9 @@
 <body>
     @include('layouts.navbar')
     
-    <div class="contenedor container-fluid">
-        @yield('main-content')
-    </div>
+    @yield('main-content')
 
      <!-- Librería de jQuery -->
-     <script src="{{ asset('js/jquery-3.3.1.min.js') }}></script>
+     <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
 </body>
 </html>

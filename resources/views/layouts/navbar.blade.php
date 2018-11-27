@@ -3,7 +3,7 @@
 <!--navbar mobile-->
     <nav id="nav-mobile" class="cont-navLogin navbar navbar-expand-lg navbar-light">
         <div class="cont-logo-mobile">
-            <img src="img/logo.svg" alt="logo">
+            <img src="{{ asset('img/logo.svg') }}" alt="logo">
         </div>
         <form action="get">
             <div class="cont-search-mobile">
@@ -19,9 +19,10 @@
         <div class="collapse navbar-collapse cont-nav-mobile" id="navMobile">
             <div class="cont-icon-nav">
             <!--poner if de logueo-->
+            @guest    
                 <a class="ico-nav" href="perfil.php" title="Mi Perfil">
                     <img class="user-photo-nav" src="{{ asset('img/man.jpg') }}" alt="">
-                    <span>Name User</span>
+                    <span>user</span>
                 </a>
                 <a class="ico-nav" href="index.php" title="Home">
                     <i class="fa fa-home"></i>
@@ -35,27 +36,35 @@
                     <i class="fas fa-users"></i>
                     <span>Amigos</span>
                 </a>
-                <a class="ico-nav" href="logout.php" title="logout">
+                <a class="ico-nav" href="{{ route('logout') }}" title="logout"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Cerrar Sesión</span>
                 </a>
+                <form id="logout-form" action="{{ route('login') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+
+            @else
             <!--end de if de logueo-->
-                <a class="ico-nav" href="login-Registro.php" title="Login">
+                <a class="ico-nav" href="{{ route('login') }}" title="Login">
                     <i class="fa fa-sign-in-alt"></i>
                     <span>Login</span>
                 </a>
-            <!--poner if de logueo-->
+         
                 <a class="ico-nav" href="FAQ.php" data-toggle="tooltip" data-placement="bottom" title="Preguntas Frecuentes">
                     <i class="fa fa-question-circle"></i>
                     <span>Ayuda</span>
                 </a>
+                @endguest
+
             </div>
         </div>
     </nav>
 <!--navbar desktop-->
     <nav id="nav-desk" class="cont-navLogin">
         <div class="cont-logo">
-            <img src="img/logo.svg" alt="logo">
+            <img src="{{ asset('img/logo.svg') }}" alt="logo">
         </div>
         <div class="cont-nav">
             <div class="cont-iconos">
@@ -87,19 +96,27 @@
                     <span>Ayuda</span>
                 </a>
                 <!--poner if de logueo-->
-                    <a class="ico-nav" href="logout.php" title="logout">
+                    <a class="ico-nav" href="{{ route('logout') }}" title="logout"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="fas fa-sign-out-alt"></i>
                         <span>Cerrar Sesión</span>
                     </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+
                     <a class="ico-nav" href="perfil.php" title="Mi Perfil">
                         <img class="user-photo-navdesk" src="{{ asset('img/man.jpg') }}" alt="">
-                        <span>Name User</span>
+                        <span>user</span>
                     </a>
                 <!--poner if de logueo-->
-                    <a class="ico-nav" href="login-Registro.php" title="Login">
+                <!-- Authentication Links -->
+                @guest
+                    <a class="ico-nav" href="{{ route('login') }}" title="Login">
                         <i class="fa fa-sign-in-alt"></i>
                         <span>Iniciar Sesión</span>
                     </a>
+                @endguest
 			    <!--poner if de logueo-->
             </div>
         </div>
