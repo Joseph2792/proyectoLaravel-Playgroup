@@ -20,6 +20,7 @@ class CreateGamesTable extends Migration
             $table->string('place');
             $table->decimal('price', 8, 2);
             $table->text('description');
+            $table->integer('likes_count')->unsigned()->nullable();
             $table->integer('team1_id')->unsigned();
             $table->foreign('team1_id')->references('id')->on('teams');
             $table->integer('team2_id')->unsigned();
