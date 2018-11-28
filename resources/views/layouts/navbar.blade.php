@@ -77,7 +77,7 @@
                     </div>
                 </form>
                 <!--poner if de logueo-->
-                <a class="ico-nav" href="index.php" title="Home">
+                <a class="ico-nav" href="{{ route('home') }}" title="Home">
                     <i class="fa fa-home"></i>
                     <span>Inicio</span>
                 </a>
