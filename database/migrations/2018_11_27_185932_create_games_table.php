@@ -18,7 +18,7 @@ class CreateGamesTable extends Migration
             $table->string('name');
             $table->dateTime('date');
             $table->string('place');
-            $table->decimal(8,2);
+            $table->decimal('price', 8, 2);
             $table->text('description');
             $table->integer('team1_id')->unsigned();
             $table->foreign('team1_id')->references('id')->on('teams');
