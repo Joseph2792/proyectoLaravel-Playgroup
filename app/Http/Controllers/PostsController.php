@@ -53,9 +53,9 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
 
-        return redirect('COMPLETAR CON LA VISTA');            // redirijo a la vista del id del post en particular.
+        return redirect('posts.viewPost')->with(compact('post'));  // redirijo a la vista del id del post en particular.
 
     }
 
