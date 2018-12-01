@@ -36,6 +36,8 @@
 
                 <div class="col-12">
                     <br>
+                    <input class="btn btn-danger" type="button" value="Eliminar Partido">
+                    <br>
                     <input class="btn btn-primary" type="button" value="Guardar Partido">
                 </div> 
             </form>
