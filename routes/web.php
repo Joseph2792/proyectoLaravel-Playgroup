@@ -23,4 +23,4 @@ Route::resource('posts', 'PostsController');
 
 Route::resource('users', 'UsersController');
 
-Route::resources('games', 'GamesController');
+Route::resource('games', 'GamesController');
