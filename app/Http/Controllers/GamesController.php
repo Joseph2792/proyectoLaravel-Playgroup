@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\GamesRequest;
+
+use App\Game;
+use App\Team;
 
 class GamesController extends Controller
 {
@@ -23,7 +27,7 @@ class GamesController extends Controller
      */
     public function create()
     {
-        //
+        return view('games.createGame');
     }
 
     /**
@@ -32,9 +36,13 @@ class GamesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GamesRequest $request)
     {
-        //
+        $game = new Game;
+
+        self::storeOrUpdate($game, $request);
+
+        return redirect('home');
     }
 
     /**

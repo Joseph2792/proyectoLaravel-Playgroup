@@ -8,7 +8,6 @@ class Game extends Model
 {
     protected $fillable = [
         'title',
-        'date',
         'place',
         'price',
         'description',
@@ -17,6 +16,8 @@ class Game extends Model
         'team1_id',
         'team2_id',
     ];
+
+    protected $dates = ['date'];
 
     public function team1(){
         return $this->hasOne (Team::class, 'id', 'team1_id');
