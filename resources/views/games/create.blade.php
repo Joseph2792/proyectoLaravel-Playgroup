@@ -17,7 +17,7 @@
 	    @endif
 
         <div class="cont-form">
-            <form  action="/games/store" method="post">
+            <form  action="/games" method="post">
               @csrf
                 <div class="col-12">
                     <div>

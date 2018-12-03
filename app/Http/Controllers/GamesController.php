@@ -39,9 +39,8 @@ class GamesController extends Controller
      */
     public function store(GamesRequest $request) // como type hint le paso el nombre del request propio
     {
-      $game = new Game;                       // instancio un objeto Game
+      // guardo
       Game::create($request->all());          // todos los inputs de CreateGame
-      $game->save();                          // guardo
 
       return redirect('home')->with(compact('game'));  // redirijo a Home, pasándole este game
     }
