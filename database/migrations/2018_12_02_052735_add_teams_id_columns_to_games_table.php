@@ -13,7 +13,7 @@ class AddTeamsIdColumnsToGamesTable extends Migration
      */
     public function up()
     {
-        Schema::table('teams', function (Blueprint $table) {
+        Schema::table('games', function (Blueprint $table) {
             $table->unsignedInteger('team1_id')->nullable();
             $table->foreign('team1_id')->references('id')->on('games');
             $table->unsignedInteger('team2_id')->nullable();
@@ -29,7 +29,7 @@ class AddTeamsIdColumnsToGamesTable extends Migration
      */
     public function down()
     {
-        Schema::table('teams', function (Blueprint $table) {
+        Schema::table('games', function (Blueprint $table) {
             $table->dropForeign('games_team1_id_foreign');
             $table->dropColumn('team1_id');
             $table->dropForeign('games_team2_id_foreign');
