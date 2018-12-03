@@ -1,4 +1,5 @@
 <?php
+use App\Game;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +23,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('posts', 'PostsController');
 
 Route::resource('users', 'UsersController');
-
+Route::post('/games/create', 'GamesController@create');
+Route::post('/games/store', 'GamesController@store');
 Route::resource('games', 'GamesController');

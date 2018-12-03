@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Game extends Model
 {
-  protected $fillable = ['name', 'place', 'price', 'number_of_players', 'description', 'date'];
+  protected $fillable = ['title', 'place', 'price', 'number_of_players', 'description', 'team1_id', 'team2_id', 'date'];
 
   public function team1()
   {

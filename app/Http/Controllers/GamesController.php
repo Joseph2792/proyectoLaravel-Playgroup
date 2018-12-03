@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\GamesRequest;
 
 use App\Game;
+use App\Team;
 
 class GamesController extends Controller
 {
@@ -15,7 +17,7 @@ class GamesController extends Controller
      */
     public function index()
     {
-      $game = Game::all();
+      $game = Game::orderBy('created_at', 'DESC')->paginate(5);
       return view('home')->with(compact('game'));
     }
 
@@ -26,7 +28,7 @@ class GamesController extends Controller
      */
     public function create()
     {
-      return view('games.createGame');
+      return view('games.create');
     }
 
     /**
@@ -35,7 +37,7 @@ class GamesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GamesRequest $request) // como type hint le paso el nombre del request propio
     {
       $game = new Game;                       // instancio un objeto Game
       Game::create($request->all());          // todos los inputs de CreateGame
@@ -54,7 +56,7 @@ class GamesController extends Controller
     {
       $game = Game::findOrFail($id);
 
-      return redirect('games.viewGame')->with(compact('game'));
+      return redirect('games.show')->with(compact('game'));
     }
 
     /**
@@ -67,7 +69,7 @@ class GamesController extends Controller
     {
       $game = Game::find($id);        //busco el game que quiero modificar
 
-      return view('games.editGame')->with(compact('game'));
+      return view('games.edit')->with(compact('game'));
     }
 
     /**
@@ -77,7 +79,7 @@ class GamesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(GamesRequest $request, $id)
     {
       $game = Game::find($id);
 

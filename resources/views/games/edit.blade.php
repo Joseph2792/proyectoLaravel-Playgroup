@@ -1,16 +1,16 @@
 @extends('layouts.base')
-@section('title', 'Crear Post')
+@section('title', 'Editar Partido')
 @section('main-content')
 <!--contenido de las secciones: login y registro home, amigos, faq, perfil-->
 <div class="contenedor container-fluid">
     <div class="row">
-        <h1>Nuevo Partido</h1>
+        <h1>Editar Partido</h1>
         <div class="cont-form">
             <form action="">
             <div class="col-sm-12 col-md-6">
                     <div>
                         <label for="">Titulo</label><br>
-                        <input type="text" name="name" id="">
+                        <input type="text" name="title" id="">
                     </div>
                     <div>
                         <label for="">Lugar</label><br>
@@ -36,7 +36,7 @@
 
                 <div class="col-12">
                     <br>
-                    <input class="btn btn-primary" type="button" value="Crear Partido">
+                    <input class="btn btn-primary" type="button" value="Guardar Partido">
                 </div>
             </form>
         </div>
