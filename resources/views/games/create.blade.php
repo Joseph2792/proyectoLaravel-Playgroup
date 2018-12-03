@@ -21,29 +21,29 @@
             @csrf
                 <div class="col-12">
                     <div>
-                        <label for="">Titulo</label><br>
+                        <label for="">Título:</label><br>
                         <input type="text" name="title" class="form-control" value="{{ old('title') }}">
                     </div>
                     
                     <div>
-                        <label for="">Lugar</label><br>
+                        <label for="">Lugar:</label><br>
                         <input type="text" name="place" class="form-control" value="{{ old('place') }}">
                     </div>
                     <div>
-                        <label for="">costo</label><br>
+                        <label for="">Costo:</label><br>
                         <input type="number" name="price" class="form-control" value="{{ old('price') }}">
                     </div>
                     <div>
-                        <label for="">Descripcion</label><br>
+                        <label for="">Descripción:</label><br>
                         <input type="text" name="description" class="form-control" value="{{ old('description') }}">
                     </div>
                     <div >
-                        <label for="">Total de jugadores</label><br>
-                        <input type="number" name="number_of_player" class="form-control" value="{{ old('number_of_player') }}">
+                        <label for="">Jugadores por equipo:</label><br>
+                        <input type="number" name="number_of_players" class="form-control" value="{{ old('number_of_players') }}">
                     </div>
                     
                     <div>
-                        <label for="">Fecha</label><br>
+                        <label for="">Fecha:</label><br>
                         <input type="date" name="date" class="form-control" value="{{ old('date') }}">
                     </div>
                 </div>
