@@ -406,6 +406,7 @@ header{
 	flex-direction: row;
 	flex-wrap: wrap;
 	overflow: hidden;
+	margin-bottom: 10px;
 }
 
 .teams{

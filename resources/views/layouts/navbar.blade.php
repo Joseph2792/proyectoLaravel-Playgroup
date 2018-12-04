@@ -107,7 +107,7 @@
 
                     <a class="ico-nav" href="perfil.php" title="Mi Perfil">
                         <img class="user-photo-navdesk" src="{{ asset('img/man.jpg') }}" alt="">
-                        <span>user</span>
+                        <span>{{ Auth::user()->name }}</span>
                     </a>
                 <!--poner if de logueo-->
                 <!-- Authentication Links -->
