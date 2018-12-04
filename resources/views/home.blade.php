@@ -37,9 +37,9 @@
       <div class="col-12 col-sm-12 col-md-8 col-lg-8">
         <div class="tipodepost-container posts-home">
           <ul>
-            <li><a href="#" class="iconos" data-toggle="modal" data-target="#NewPartido"><i class="far fa-futbol"></i>Nuevo Partido</a></li>
-            <li><a href="#" class="iconos" data-toggle="modal" data-target="#NewFecha"><i class="fas fa-calendar-plus"></i>Nueva Fecha</a></li>
-            <li><a href="#" class="iconos" data-toggle="modal" data-target="#NewTorneo"><i class="fas fa-trophy"></i>Nuevo Torneo</a></li>
+            <li><a href="/games/create" class="iconos"><i class="far fa-futbol"></i>Nuevo Partido</a></li>
+            <li><a href="" class="iconos"><i class="fas fa-calendar-plus"></i>Nueva Fecha</a></li>
+            <li><a href="" class="iconos"><i class="fas fa-trophy"></i>Nuevo Torneo</a></li>
           </ul>
         </div>
         <div class="post-container">

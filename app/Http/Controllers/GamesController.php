@@ -37,10 +37,12 @@ class GamesController extends Controller
      */
     public function store(GamesRequest $request) // como type hint le paso el nombre del request propio
     {
-      // guardo
-      Game::create($request->all());          // todos los inputs de CreateGame
-      return redirect('home')->with(compact('game'));  // redirijo a Home, pasándole este game
+      // $game = new Game;
+      Game::create($request->all());          // guardo todos los inputs de CreateGame
+
+      return redirect('home')->with(compact('game'));  // redirijo a Home, pasándole este game, cmosabe que le esta pasando el game nuevo?
     }
+
     /**
      * Display the specified resource.
      *
@@ -50,8 +52,10 @@ class GamesController extends Controller
     public function show($id)
     {
       $game = Game::findOrFail($id);
+
       return redirect('games.show')->with(compact('game'));
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -60,9 +64,12 @@ class GamesController extends Controller
      */
     public function edit($id)
     {
-      $game = Game::find($id);        //busco el game que quiero modificar
+
+      $game = Game::findOrFail($id);        //busco el game que quiero modificar
+
       return view('games.edit')->with(compact('game'));
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -73,15 +80,18 @@ class GamesController extends Controller
     public function update(GamesRequest $request, $id)
     {
       $game = Game::find($id);
-      $game->name = $request->input('name');
+      $game->title = $request->input('title');
       $game->place = $request->input('place');
       $game->price = $request->input('price');
-      $game->number_of_players = $request->input('number_of_players');
       $game->description = $request->input('description');
+      $game->number_of_players = $request->input('number_of_players');
       $game->date = $request->input('date');
+      
       $game->save();
+
       return redirect('home')->with('game');
     }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -92,6 +102,7 @@ class GamesController extends Controller
     {
       $game = Game::find($id);
       $game->delete();
+
       return redirect('home');
     }
 }

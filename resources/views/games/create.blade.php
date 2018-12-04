@@ -23,7 +23,7 @@
     </div>
 
     <div class="cont-form">
-        <form class="row"  action="/games" method="post">
+        <form class="row"  action="{{ route('games.store') }}" method="post">
         @csrf
             <div class="col-6">
                 <div>

@@ -1,4 +1,5 @@
 <?php
+use App\Game;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +18,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::middleware('auth')->group(function() {
+    Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('posts', 'PostsController');
-Route::resource('users', 'UsersController');
+    Route::resource('posts', 'PostsController');
 
-//Route::get('/games/create', 'GamesController@create')->name('games.create');
-//Route::post('/games/store', 'GamesController@store')->name('games.store');
+    Route::resource('users', 'UsersController');
+    //
+    // Route::post('/games/create', 'GamesController@create');
+    // Route::post('/games/store', 'GamesController@store');
 
-Route::resource('games', 'GamesController');
+    Route::resource('games', 'GamesController');
+//}

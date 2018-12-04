@@ -5,7 +5,7 @@
 <div class="contenedor container-fluid">
     <div class="row">
         <div class="col-12">
-            <h1>Nuevo Partido</h1>
+            <h1>Editar Partido: {{ $game->title }}</h1>
         </div>
     </div>
     <div class="row">
@@ -23,41 +23,60 @@
     </div>
 
     <div class="cont-form">
-        <form class="row"  action="{{ route('games.store') }}" method="post">
+        <form class="row"  action="{{ route('games.update', $game) }}" method="post">
         @csrf
+        {{ method_field('PUT') }}
             <div class="col-6">
                 <div>
                     <label for="">Título:</label><br>
-                    <input type="text" name="title" class="form-control" value="{{ old('title') }}">
+                    <input type="text" name="title" 
+                        class="form-control {{ $errors->has('title') ? 'is-invalid': '' }}"
+                        value="{{ old('title', $game->title) }}">
                 </div>
                 
                 <div>
                     <label for="">Lugar:</label><br>
-                    <input type="text" name="place" class="form-control" value="{{ old('place') }}">
+                    <input type="text" name="place"  
+                        class="form-control {{ $errors->has('place') ? 'is-invalid': '' }}"
+                        value="{{ old('place', $game->place) }}">
                 </div>
                 <div>
                     <label for="">Costo:</label><br>
-                    <input type="number" name="price" class="form-control" value="{{ old('price') }}">
+                    <input type="number" name="price" 
+                        class="form-control {{ $errors->has('price') ? 'is-invalid': '' }}"
+                        value="{{ old('price', $game->price) }}">
                 </div>
                 <div>
                     <label for="">Descripción:</label><br>
-                    <input type="text" name="description" class="form-control" value="{{ old('description') }}">
+                    <input type="text" name="description" 
+                        class="form-control {{ $errors->has('description') ? 'is-invalid': '' }}"
+                        value="{{ old('description', $game->description) }}">
                 </div>
                 <div >
                     <label for="">Jugadores por equipo:</label><br>
-                    <input type="number" name="number_of_players" class="form-control" value="{{ old('number_of_players') }}">
+                    <input type="number" name="number_of_players" 
+                        class="form-control {{ $errors->has('number_of_players') ? 'is-invalid': '' }}"
+                        value="{{ old('number_of_players', $game->number_of_players) }}">
                 </div>
                 
                 <div>
                     <label for="">Fecha:</label><br>
-                    <input type="date" name="date" class="form-control" value="{{ old('date') }}">
+                    <input type="date" name="date" 
+                        class="form-control {{ $errors->has('date') ? 'is-invalid': '' }}"
+                        value="{{ old('date', $game->date) }}">
                 </div>
                 <br>
-                <input class="btn btn-danger" type="submit" value="Eliminar Partido">
-                
-                <input class="btn btn-primary" type="submit" value="Crear Partido">
+                <input class="btn btn-primary" type="submit" value="Guardar cambios">
             </div>
         </form>
+        @auth
+            <form action="{{ route('games.destroy', $game->id) }}" method="post">
+                @csrf
+                {{ method_field('DELETE') }}
+                <br>
+                <button type="submit" class="btn-danger">Borrar partido</button>
+            </form>
+        @endauth
     </div>
    
 </div>
