@@ -92,6 +92,6 @@
         <span class="numb"></span>
       </a>
     </div>
-
+    {{ $games->links() }}
   </div>
 @endsection

@@ -53,7 +53,7 @@ class GamesController extends Controller
     {
       $game = Game::findOrFail($id);
 
-      return redirect('games.show')->with(compact('game'));
+      return view('games.show')->with(compact('game'));
     }
 
     /**

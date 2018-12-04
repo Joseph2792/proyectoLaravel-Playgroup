@@ -3,7 +3,7 @@
 <!--navbar mobile-->
     <nav id="nav-mobile" class="cont-navLogin navbar navbar-expand-lg navbar-light">
         <div class="cont-logo-mobile">
-            <img src="{{ asset('img/logo.svg') }}" alt="logo">
+            <a href="{{ route('home') }}"><img src="{{ asset('img/logo.svg') }}" alt="logo"></a>
         </div>
         <form action="get">
             <div class="cont-search-mobile">
@@ -64,7 +64,7 @@
 <!--navbar desktop-->
     <nav id="nav-desk" class="cont-navLogin">
         <div class="cont-logo">
-            <img src="{{ asset('img/logo.svg') }}" alt="logo">
+            <a href="{{ route('home') }}"><img src="{{ asset('img/logo.svg') }}" alt="logo"></a>
         </div>
         <div class="cont-nav">
             <div class="cont-iconos">
