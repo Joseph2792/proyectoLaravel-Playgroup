@@ -17,8 +17,8 @@ class GamesController extends Controller
      */
     public function index()
     {
-      $game = Game::orderBy('created_at', 'DESC')->paginate(5);
-      return view('home')->with(compact('game'));
+      $games = Game::orderBy('created_at', 'DESC')->paginate(1);
+      return view('home')->with(compact('games'));
     }
     /**
      * Show the form for creating a new resource.
@@ -38,9 +38,9 @@ class GamesController extends Controller
     public function store(GamesRequest $request) // como type hint le paso el nombre del request propio
     {
       // $game = new Game;
-      Game::create($request->all());          // guardo todos los inputs de CreateGame
+      $games = Game::create($request->all());          // guardo todos los inputs de CreateGame
 
-      return redirect('home')->with(compact('game'));  // redirijo a Home, pasándole este game, cmosabe que le esta pasando el game nuevo?
+      return redirect('home')->with(compact('games'));  // redirijo a Home, pasándole este game, cmosabe que le esta pasando el game nuevo?
     }
 
     /**
@@ -51,9 +51,9 @@ class GamesController extends Controller
      */
     public function show($id)
     {
-      $game = Game::findOrFail($id);
+      $game = Game::find($id);
 
-      return redirect('games.show')->with(compact('game'));
+      return view('games.show')->with(compact('game'));
     }
 
     /**
@@ -65,9 +65,9 @@ class GamesController extends Controller
     public function edit($id)
     {
 
-      $game = Game::findOrFail($id);        //busco el game que quiero modificar
+      $games = Game::findOrFail($id);        //busco el game que quiero modificar
 
-      return view('games.edit')->with(compact('game'));
+      return view('games.edit')->with(compact('games'));
     }
 
     /**

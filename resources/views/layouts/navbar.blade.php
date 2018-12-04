@@ -20,9 +20,18 @@
             <div class="cont-icon-nav">
             <!--poner if de logueo-->
             @guest    
+                <a class="ico-nav" href="{{ route('login') }}" title="Login">
+                    <i class="fa fa-sign-in-alt"></i>
+                    <span>Login</span>
+                </a>
+                <a class="ico-nav" href="FAQ.php" data-toggle="tooltip" data-placement="bottom" title="Preguntas Frecuentes">
+                    <i class="fa fa-question-circle"></i>
+                    <span>Ayuda</span>
+                </a>
+            @else
                 <a class="ico-nav" href="perfil.php" title="Mi Perfil">
                     <img class="user-photo-nav" src="{{ asset('img/man.jpg') }}" alt="">
-                    <span>user</span>
+                    <span>{{ Auth::user()->name }}</span>
                 </a>
                 <a class="ico-nav" href="index.php" title="Home">
                     <i class="fa fa-home"></i>
@@ -36,6 +45,10 @@
                     <i class="fas fa-users"></i>
                     <span>Amigos</span>
                 </a>
+                <a class="ico-nav" href="FAQ.php" data-toggle="tooltip" data-placement="bottom" title="Preguntas Frecuentes">
+                    <i class="fa fa-question-circle"></i>
+                    <span>Ayuda</span>
+                </a>
                 <a class="ico-nav" href="{{ route('logout') }}" title="logout"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <i class="fas fa-sign-out-alt"></i>
@@ -44,20 +57,8 @@
                 <form id="logout-form" action="{{ route('login') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
-
-            @else
-            <!--end de if de logueo-->
-                <a class="ico-nav" href="{{ route('login') }}" title="Login">
-                    <i class="fa fa-sign-in-alt"></i>
-                    <span>Login</span>
-                </a>
-         
-                <a class="ico-nav" href="FAQ.php" data-toggle="tooltip" data-placement="bottom" title="Preguntas Frecuentes">
-                    <i class="fa fa-question-circle"></i>
-                    <span>Ayuda</span>
-                </a>
-                @endguest
-
+                
+            @endguest
             </div>
         </div>
     </nav>
@@ -77,6 +78,20 @@
                     </div>
                 </form>
                 <!--poner if de logueo-->
+
+                
+
+                <!-- Authentication Links -->
+                @guest
+                    <a class="ico-nav" href="{{ route('login') }}" title="Login">
+                        <i class="fa fa-sign-in-alt"></i>
+                        <span>Iniciar Sesión</span>
+                    </a>
+                    <a class="ico-nav" href="FAQ.php" data-toggle="tooltip" data-placement="bottom" title="Preguntas Frecuentes">
+                        <i class="fa fa-question-circle"></i>
+                        <span>Ayuda</span>
+                    </a>
+                @else
                 <a class="ico-nav" href="{{ route('home') }}" title="Home">
                     <i class="fa fa-home"></i>
                     <span>Inicio</span>
@@ -89,33 +104,22 @@
                     <i class="fas fa-users"></i>
                     <span>Amigos</span>
                 </a>
-                <!--end de if de logueo-->
-
+                <a class="ico-nav" href="{{ route('logout') }}" title="logout"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
                 <a class="ico-nav" href="FAQ.php" data-toggle="tooltip" data-placement="bottom" title="Preguntas Frecuentes">
                     <i class="fa fa-question-circle"></i>
                     <span>Ayuda</span>
                 </a>
-                <!--poner if de logueo-->
-                    <a class="ico-nav" href="{{ route('logout') }}" title="logout"
-                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span>Cerrar Sesión</span>
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-
-                    <a class="ico-nav" href="perfil.php" title="Mi Perfil">
-                        <img class="user-photo-navdesk" src="{{ asset('img/man.jpg') }}" alt="">
-                        <span>{{ Auth::user()->name }}</span>
-                    </a>
-                <!--poner if de logueo-->
-                <!-- Authentication Links -->
-                @guest
-                    <a class="ico-nav" href="{{ route('login') }}" title="Login">
-                        <i class="fa fa-sign-in-alt"></i>
-                        <span>Iniciar Sesión</span>
-                    </a>
+                <a class="ico-nav" href="perfil.php" title="Mi Perfil">
+                    <img class="user-photo-navdesk" src="{{ asset('img/man.jpg') }}" alt="">
+                    <span>{{ Auth::user()->name }}</span>
+                </a>
                 @endguest
 			    <!--poner if de logueo-->
             </div>
