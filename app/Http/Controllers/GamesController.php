@@ -96,8 +96,11 @@ class GamesController extends Controller
         $game->price = $request->price;
         $game->description = $request->description;
         $game->number_of_player = $request->number_of_player;
-        $game->team1_id = $request->team1_id;
-        $game->team2_id = $request->team2_id;
+       // $game->team1_id = $request->team1_id;
+      //  $game->team2_id = $request->team2_id;
+
+        $game->team1_id = 1;
+        $game->team2_id = 2;
 
         $game->save();
     }
