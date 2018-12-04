@@ -19,10 +19,23 @@
         <div class="collapse navbar-collapse cont-nav-mobile" id="navMobile">
             <div class="cont-icon-nav">
             <!--poner if de logueo-->
+<<<<<<< HEAD
             @guest
+=======
+            @guest
+                <a class="ico-nav" href="{{ route('login') }}" title="Login">
+                    <i class="fa fa-sign-in-alt"></i>
+                    <span>Login</span>
+                </a>
+                <a class="ico-nav" href="FAQ.php" data-toggle="tooltip" data-placement="bottom" title="Preguntas Frecuentes">
+                    <i class="fa fa-question-circle"></i>
+                    <span>Ayuda</span>
+                </a>
+            @else
+>>>>>>> 251b9e2039854306d668b01c5299f4238d762d4c
                 <a class="ico-nav" href="perfil.php" title="Mi Perfil">
                     <img class="user-photo-nav" src="{{ asset('img/man.jpg') }}" alt="">
-                    <span>user</span>
+                    <span>{{ Auth::user()->name }}</span>
                 </a>
                 <a class="ico-nav" href="index.php" title="Home">
                     <i class="fa fa-home"></i>
@@ -35,6 +48,10 @@
                 <a class="ico-nav" href="listado-amigos.php" title="Mis Amigos">
                     <i class="fas fa-users"></i>
                     <span>Amigos</span>
+                </a>
+                <a class="ico-nav" href="FAQ.php" data-toggle="tooltip" data-placement="bottom" title="Preguntas Frecuentes">
+                    <i class="fa fa-question-circle"></i>
+                    <span>Ayuda</span>
                 </a>
                 <a class="ico-nav" href="{{ route('logout') }}" title="logout"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -78,7 +95,11 @@
                 </form>
                 <!--poner if de logueo-->
 
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> 251b9e2039854306d668b01c5299f4238d762d4c
 
                 <!-- Authentication Links -->
                 @guest
@@ -107,11 +128,22 @@
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Cerrar Sesión</span>
+<<<<<<< HEAD
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
 
+=======
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+                <a class="ico-nav" href="FAQ.php" data-toggle="tooltip" data-placement="bottom" title="Preguntas Frecuentes">
+                    <i class="fa fa-question-circle"></i>
+                    <span>Ayuda</span>
+                </a>
+>>>>>>> 251b9e2039854306d668b01c5299f4238d762d4c
                 <a class="ico-nav" href="perfil.php" title="Mi Perfil">
                     <img class="user-photo-navdesk" src="{{ asset('img/man.jpg') }}" alt="">
                     <span>{{ Auth::user()->name }}</span>
