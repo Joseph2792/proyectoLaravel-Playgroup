@@ -9,34 +9,34 @@
     <div class="row">
         <div class="col-12">
             <div>
-                <label for="">Titulo</label>
+                <label for="">Titulo:</label>
                 <span></span>
             </div>
             <div>
-                <label for="">Lugar</label>
+                <label for="">Lugar:</label>
                 <span></span>
             </div>
             <div>
-                <label for="">costo</label>
+                <label for="">Costo:</label>
                 <span></span>
             </div>
             <div >
-                <label for="">Total de jugadores</label>
+                <label for="">Total de jugadores:</label>
                 <span></span>
             </div>
             <div>
-                <label for="">Descripcion</label>
+                <label for="">Descripción:</label>
                 <span></span>
             </div>
             <div>
-                <label for="">Fecha</label>
+                <label for="">Fecha:</label>
                 <span></span>
             </div>
-        </div> 
+        </div>
         <div class="col-12">
             <br>
             <a href="">Volver Atras</a>
-        </div> 
+        </div>
     </div>
 </div>
 <!--fin del contenido-->

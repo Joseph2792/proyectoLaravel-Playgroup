@@ -17,8 +17,8 @@ class GamesController extends Controller
      */
     public function index()
     {
-      $game = Game::orderBy('created_at', 'DESC')->paginate(5);
-      return view('home')->with(compact('game'));
+      $games = Game::orderBy('created_at', 'DESC')->paginate(5);
+      return view('home')->with(compact('games'));
     }
     /**
      * Show the form for creating a new resource.
@@ -37,8 +37,8 @@ class GamesController extends Controller
      */
     public function store(GamesRequest $request) // como type hint le paso el nombre del request propio
     {
-      // $game = new Game;
-      Game::create($request->all());          // guardo todos los inputs de CreateGame
+
+      $game = Game::create($request->all());          // guardo todos los inputs de CreateGame
 
       return redirect('home')->with(compact('game'));  // redirijo a Home, pasándole este game, cmosabe que le esta pasando el game nuevo?
     }
@@ -86,7 +86,7 @@ class GamesController extends Controller
       $game->description = $request->input('description');
       $game->number_of_players = $request->input('number_of_players');
       $game->date = $request->input('date');
-      
+
       $game->save();
 
       return redirect('home')->with('game');

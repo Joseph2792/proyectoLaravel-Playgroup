@@ -18,15 +18,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Route::middleware('auth')->group(function() {
-    Route::get('/home', 'HomeController@index')->name('home');
-
+Route::middleware('auth')->group(function() {
     Route::resource('posts', 'PostsController');
 
     Route::resource('users', 'UsersController');
-    //
-    // Route::post('/games/create', 'GamesController@create');
-    // Route::post('/games/store', 'GamesController@store');
 
-    Route::resource('games', 'GamesController');
-//}
+    Route::get('/home', 'GamesController@index')->name('home');
+    Route::resource('games', 'GamesController')->except(['index']);
+});
