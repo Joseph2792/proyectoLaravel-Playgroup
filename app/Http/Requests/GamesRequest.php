@@ -26,7 +26,7 @@ class GamesRequest extends FormRequest
         return [
             'title' => 'required',
 			'place' => 'required | string',
-			'price' => 'required | decimal',
+			'price' => 'required',
 			'number_of_player' => 'required | integer',
 			'date' => 'required',         
         ];

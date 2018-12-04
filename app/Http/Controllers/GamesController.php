@@ -27,7 +27,7 @@ class GamesController extends Controller
      */
     public function create()
     {
-        return view('games.createGame');
+        return view('games.create');
     }
 
     /**
@@ -88,5 +88,17 @@ class GamesController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function storeOrUpdate($game, $request){
+        $game->title = $request->title;
+        $game->place = $request->place;
+        $game->price = $request->price;
+        $game->description = $request->description;
+        $game->number_of_player = $request->number_of_player;
+        $game->team1_id = $request->team1_id;
+        $game->team2_id = $request->team2_id;
+
+        $game->save();
     }
 }

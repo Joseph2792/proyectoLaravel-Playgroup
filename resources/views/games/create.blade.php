@@ -39,7 +39,7 @@
                     </div>
                     <div >
                         <label for="">Jugadores por equipo:</label><br>
-                        <input type="number" name="number_of_players" class="form-control" value="{{ old('number_of_players') }}">
+                        <input type="number" name="number_of_player" class="form-control" value="{{ old('number_of_players') }}">
                     </div>
                     
                     <div>
@@ -50,7 +50,7 @@
 
                 <div class="col-12">
                     <br>
-                    <input class="btn btn-primary" type="button" value="Crear Partido">
+                    <input class="btn btn-primary" type="submit" value="Crear Partido">
                 </div> 
             </form>
         </div>
