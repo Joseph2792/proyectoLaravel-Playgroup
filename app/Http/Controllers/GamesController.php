@@ -17,9 +17,9 @@ class GamesController extends Controller
      */
     public function index()
     {
-        //
+      $game = Game::orderBy('created_at', 'DESC')->paginate(5);
+      return view('home')->with(compact('game'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -27,24 +27,20 @@ class GamesController extends Controller
      */
     public function create()
     {
-        return view('games.create');
+      return view('games.create');
     }
-
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(GamesRequest $request)
+    public function store(GamesRequest $request) // como type hint le paso el nombre del request propio
     {
-        $game = new Game;
-
-        self::storeOrUpdate($game, $request);
-
-        return redirect('home');
+      // guardo
+      Game::create($request->all());          // todos los inputs de CreateGame
+      return redirect('home')->with(compact('game'));  // redirijo a Home, pasándole este game
     }
-
     /**
      * Display the specified resource.
      *
@@ -53,9 +49,9 @@ class GamesController extends Controller
      */
     public function show($id)
     {
-        //
+      $game = Game::findOrFail($id);
+      return redirect('games.show')->with(compact('game'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -64,9 +60,9 @@ class GamesController extends Controller
      */
     public function edit($id)
     {
-        //
+      $game = Game::find($id);        //busco el game que quiero modificar
+      return view('games.edit')->with(compact('game'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -74,11 +70,18 @@ class GamesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(GamesRequest $request, $id)
     {
-        //
+      $game = Game::find($id);
+      $game->name = $request->input('name');
+      $game->place = $request->input('place');
+      $game->price = $request->input('price');
+      $game->number_of_players = $request->input('number_of_players');
+      $game->description = $request->input('description');
+      $game->date = $request->input('date');
+      $game->save();
+      return redirect('home')->with('game');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -87,21 +90,8 @@ class GamesController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
-
-    public function storeOrUpdate($game, $request){
-        $game->title = $request->title;
-        $game->place = $request->place;
-        $game->price = $request->price;
-        $game->description = $request->description;
-        $game->number_of_player = $request->number_of_player;
-       // $game->team1_id = $request->team1_id;
-      //  $game->team2_id = $request->team2_id;
-
-        $game->team1_id = 1;
-        $game->team2_id = 2;
-
-        $game->save();
+      $game = Game::find($id);
+      $game->delete();
+      return redirect('home');
     }
 }

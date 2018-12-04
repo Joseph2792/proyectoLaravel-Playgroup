@@ -19,5 +19,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/games/create', 'GamesController@create')->name('games.create');
-Route::post('/games/store', 'GamesController@store')->name('games.store');
+Route::resource('posts', 'PostsController');
+Route::resource('users', 'UsersController');
+
+//Route::get('/games/create', 'GamesController@create')->name('games.create');
+//Route::post('/games/store', 'GamesController@store')->name('games.store');
+
+Route::resource('games', 'GamesController');

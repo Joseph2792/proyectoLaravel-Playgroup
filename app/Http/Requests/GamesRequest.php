@@ -27,7 +27,7 @@ class GamesRequest extends FormRequest
             'title' => 'required',
 			'place' => 'required | string',
 			'price' => 'required',
-			'number_of_player' => 'required | integer',
+			'number_of_players' => 'required | integer',
 			'date' => 'required',         
         ];
     }
@@ -43,7 +43,7 @@ class GamesRequest extends FormRequest
 			'title.required' => 'El título es obligatorio',
 			'place.required' => 'El lugar es obligatorio',
 			'price.required' => 'El precio es obligatorio',
-			'number_of_player.required' => 'La cantidad de jugadores es obligatorio',
+			'number_of_players.required' => 'La cantidad de jugadores es obligatorio',
 			'date.required' => 'La fecha es obligatorio',
 		];
 	}

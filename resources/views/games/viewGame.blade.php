@@ -4,7 +4,9 @@
 <!--contenido de las secciones: login y registro home, amigos, faq, perfil-->
 <div class="contenedor container-fluid">
     <div class="row">
-        <h1>Vista de Partido</h1>
+        <div class="col-12">
+            <h1>Vista de Partido</h1>
+        </div>
     </div>
     <div class="row">
         <div class="col-12">

@@ -11,7 +11,7 @@ class Game extends Model
         'place',
         'price',
         'description',
-        'number_of_player',
+        'number_of_players',
         'likes',
         'team1_id',
         'team2_id',
