@@ -33,7 +33,7 @@
                     <img class="user-photo-nav" src="{{ asset('img/man.jpg') }}" alt="">
                     <span>{{ Auth::user()->name }}</span>
                 </a>
-                <a class="ico-nav" href="index.php" title="Home">
+                <a class="ico-nav" href="{{ route('home') }}" title="Home">
                     <i class="fa fa-home"></i>
                     <span>Inicio</span>
                 </a>
