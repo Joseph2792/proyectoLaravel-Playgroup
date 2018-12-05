@@ -42,11 +42,11 @@ class GamesController extends Controller
       $game = new Game;
 
       $team1 = Team::create([
-        'size' => $request->input('size');
+        'size' => $request->input('size')
       ]);
 
       $team2 = Team::create([
-        'size' => $request->input('size');
+        'size' => $request->input('size')
       ]);
 
       $game->team1_id = $team1->id;          // guardo todos los inputs de CreateGame

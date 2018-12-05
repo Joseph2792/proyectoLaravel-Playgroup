@@ -47,7 +47,7 @@
               <img src="img/icons/trofeo.png" class="event-icon-trophy">
               <div class="description">
                 <h4>Torneo - {{ $oneGame->title }}</h4>
-                <h6>En {{ $oneGame->place }} el dia {{ $oneGame->date }}, llevar ${{ $oneGame->price }}</h6>
+                <h6>En {{ $oneGame->place }} el dia {{ $oneGame->date }}. Valor: ${{ $oneGame->price }}</h6>
                 <br>
                 <p>{{ $oneGame->description }}</p>
               </div>
