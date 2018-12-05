@@ -39,18 +39,25 @@ class GamesController extends Controller
     // ESTE ES EL BLOQUE DE CODIGO QUE NOS PASO JAVI PARA RELACIONAR ID DE TEAMS CUANDO CREO UN GAME
     public function store(GamesRequest $request) // como type hint le paso el nombre del request propio
     {
+
       $game = new Game;
 
-      $team1 = Team::create([
-        'size' => $request->input('size')
-      ]);
+      $team1 = new Team;
+      $team1->size = $request->input('number_of_players');
+      $team1->save();
 
-      $team2 = Team::create([
-        'size' => $request->input('size')
-      ]);
+      $team2 = new Team;
+      $team2->size = $request->input('number_of_players');
+      $team2->save();
 
-      $game->team1_id = $team1->id;          // guardo todos los inputs de CreateGame
-      $game->team2_id = $team2->id;          // guardo todos los inputs de CreateGame
+      $game->title = $request->input('title');
+      $game->place = $request->input('place');
+      $game->price = $request->input('price');
+      $game->description = $request->input('description');
+      $game->number_of_players = $request->input('number_of_players');
+      $game->date = $request->input('date');
+      $game->team1_id = $team1->id;
+      $game->team2_id = $team2->id;
 
       $game->save();
 
