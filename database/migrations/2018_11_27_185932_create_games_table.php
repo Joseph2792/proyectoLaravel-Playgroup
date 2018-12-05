@@ -22,9 +22,7 @@ class CreateGamesTable extends Migration
             $table->text('description');
             $table->integer('likes_count')->unsigned()->nullable();
             $table->integer('team1_id')->unsigned()->nullable();
-            $table->foreign('team1_id')->references('id')->on('teams');
             $table->integer('team2_id')->unsigned()->nullable();
-            $table->foreign('team2_id')->references('id')->on('teams');
             $table->tinyInteger('number_of_players');
             $table->timestamps();
         });

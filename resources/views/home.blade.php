@@ -86,7 +86,6 @@
             </div>
           </div>
         @endforeach
-        {{ $games->links() }}
       </div>
     </section>
 

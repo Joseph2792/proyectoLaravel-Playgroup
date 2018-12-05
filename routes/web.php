@@ -25,4 +25,6 @@ Route::middleware('auth')->group(function() {
 
     Route::get('/home', 'GamesController@index')->name('home');
     Route::resource('games', 'GamesController')->except(['index']);
+
+    // Route::post('RUTA DONDE SE UNEN A UN EQUIPO', 'TeamsController@addPlayer');
 });

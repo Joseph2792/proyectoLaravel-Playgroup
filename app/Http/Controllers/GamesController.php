@@ -17,11 +17,7 @@ class GamesController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-      $games = Game::orderBy('created_at', 'DESC')->paginate(5);
-=======
       $games = Game::orderBy('created_at', 'DESC')->paginate(1);
->>>>>>> 251b9e2039854306d668b01c5299f4238d762d4c
       return view('home')->with(compact('games'));
     }
     /**
@@ -39,10 +35,24 @@ class GamesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    // ESTE ES EL BLOQUE DE CODIGO QUE NOS PASO JAVI PARA RELACIONAR ID DE TEAMS CUANDO CREO UN GAME
     public function store(GamesRequest $request) // como type hint le paso el nombre del request propio
     {
+      $game = new Game;
 
-      $game = Game::create($request->all());          // guardo todos los inputs de CreateGame
+      $team1 = Team::create([
+        'size' => $request->input('size');
+      ]);
+
+      $team2 = Team::create([
+        'size' => $request->input('size');
+      ]);
+
+      $game->team1_id = $team1->id;          // guardo todos los inputs de CreateGame
+      $game->team2_id = $team2->id;          // guardo todos los inputs de CreateGame
+
+      $game->save();
 
       return redirect('home')->with(compact('games'));  // redirijo a Home, pasándole este game, cmosabe que le esta pasando el game nuevo?
     }
