@@ -30,7 +30,7 @@
                 </a>
             @else
                 <a class="ico-nav" href="perfil.php" title="Mi Perfil">
-                    <img class="user-photo-nav" src="{{ asset('img/man.jpg') }}" alt="">
+                    <img class="user-photo-nav" src="\storage\{{ Auth::user()->avatar }}" alt="">
                     <span>{{ Auth::user()->name }}</span>
                 </a>
                 <a class="ico-nav" href="{{ route('home') }}" title="Home">
@@ -117,7 +117,7 @@
                     <span>Ayuda</span>
                 </a>
                 <a class="ico-nav" href="perfil.php" title="Mi Perfil">
-                    <img class="user-photo-navdesk" src="{{ asset('img/man.jpg') }}" alt="">
+                    <img class="user-photo-navdesk" src="\storage\{{ Auth::user()->avatar }}" alt="">
                     <span>{{ Auth::user()->name }}</span>
                 </a>
                 @endguest

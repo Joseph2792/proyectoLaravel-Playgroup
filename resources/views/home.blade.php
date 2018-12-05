@@ -8,7 +8,7 @@
 
           <div class="photo-profile-home">
             <a class="cont-photo-profile" href="">
-                <img class="photo" src="img/man.jpg" alt="">
+                <img class="photo" src="\storage\{{ Auth::user()->avatar }}" alt="">
             </a>
             <span class="name-home">{{ Auth::user()->name }} </span>
           </div>
