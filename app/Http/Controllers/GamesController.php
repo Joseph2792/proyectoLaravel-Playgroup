@@ -17,7 +17,7 @@ class GamesController extends Controller
      */
     public function index()
     {
-      $games = Game::orderBy('created_at', 'DESC')->paginate(1);
+      $games = Game::orderBy('created_at', 'DESC')->paginate(10);
       return view('home')->with(compact('games'));
     }
     /**
@@ -79,9 +79,9 @@ class GamesController extends Controller
     public function edit($id)
     {
 
-      $games = Game::findOrFail($id);        //busco el game que quiero modificar
+      $game = Game::findOrFail($id);        //busco el game que quiero modificar
 
-      return view('games.edit')->with(compact('games'));
+      return view('games.edit')->with(compact('game'));
     }
 
     /**

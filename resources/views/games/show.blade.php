@@ -4,38 +4,49 @@
 <!--contenido de las secciones: login y registro home, amigos, faq, perfil-->
 <div class="contenedor container-fluid">
     <div class="row">
-        <h1>Vista de Partido</h1>
+        <div class="col-12">
+            <a href="{{ route('home') }}"><i class="fas fa-arrow-circle-left"></i> Volver Atras</a><br>
+            <h1>Detalle del Partido</h1>
+        </div>
     </div>
     <div class="row">
         <div class="col-12">
             <div>
-                <label for="">Titulo:</label>
-                <span></span>
+                <label for=""><strong>Titulo:</strong></label>
+                <span>{{ $game->title }}</span>
             </div>
             <div>
-                <label for="">Lugar:</label>
-                <span></span>
+                <label for=""><strong>Lugar:</strong></label>
+                <span>{{ $game->place }}</span>
             </div>
             <div>
-                <label for="">Costo:</label>
-                <span></span>
+                <label for=""><strong>Costo:</strong></label>
+                <span>{{ $game->price }}</span>
             </div>
             <div >
-                <label for="">Total de jugadores:</label>
-                <span></span>
+                <label for=""><strong>Total de jugadores:</strong></label>
+                <span>{{ $game->number_of_players }}</span>
             </div>
             <div>
-                <label for="">Descripción:</label>
-                <span></span>
+                <label for=""><strong>Descripción:</strong></label>
+                <span>{{ $game->description }}</span>
             </div>
             <div>
-                <label for="">Fecha:</label>
-                <span></span>
+                <label for=""><strong>Fecha:</strong></label>
+                <span>{{ $game->date }}</span>
             </div>
         </div>
         <div class="col-12">
             <br>
-            <a href="">Volver Atras</a>
+            <a href="/games/{{ $game->id }}/edit" class="btn">Editar Partido</a>
+
+            <form action="{{ route('games.destroy', $game->id) }}" method="post">
+                @csrf
+                {{ method_field('DELETE') }}
+                <br>
+                <button type="submit" class="btn-danger">Borrar Partido</button>
+            </form>
+
         </div>
     </div>
 </div>

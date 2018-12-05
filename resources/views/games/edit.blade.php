@@ -63,7 +63,7 @@
                     <label for="">Fecha:</label><br>
                     <input type="date" name="date" 
                         class="form-control {{ $errors->has('date') ? 'is-invalid': '' }}"
-                        value="{{ old('date', $game->date) }}">
+                        value="{{ $game->date->format('Y-m-d') }}">
                 </div>
                 <br>
                 <input class="btn btn-primary" type="submit" value="Guardar cambios">
