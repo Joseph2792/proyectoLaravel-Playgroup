@@ -26,7 +26,7 @@ class CreateGamesTable extends Migration
             $table->tinyInteger('number_of_players');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->unsigned()->nullable();
         });
     }
 
