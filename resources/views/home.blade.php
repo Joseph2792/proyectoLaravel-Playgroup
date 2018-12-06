@@ -41,6 +41,18 @@
             <li><a href="" class="iconos"><i class="fas fa-trophy"></i>Nuevo Torneo</a></li>
           </ul>
         </div>
+        @if ( session('deleted') )
+          <div class="alert alert-warning">
+            {{ session('deleted') }}
+          </div>
+        @endif
+
+        @if ( session('edited') )
+          <div class="alert alert-success">
+            {{ session('edited') }}
+          </div>
+        @endif
+
         @foreach ($games as $oneGame)
           <div class="post-container">
             <div class="post-description">
