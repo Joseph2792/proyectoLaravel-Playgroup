@@ -56,9 +56,9 @@
         @foreach ($games as $oneGame)
           <div class="post-container">
             <div class="post-description">
-              <img src="img/icons/trofeo.png" class="event-icon-trophy">
+              <img src="img/icons/pelota.png" class="event-icon-ball">
               <div class="description">
-                <h4>Torneo - {{ $oneGame->title }}</h4>
+                <h4><strong>Partido</strong> - {{ $oneGame->title }}</h4>
                 <h6>En {{ $oneGame->place }} el dia {{ $oneGame->date->format('Y-m-d') }}. Valor: ${{ $oneGame->price }} por persona.</h6>
                 <br>
                 <p>{{ $oneGame->description }}</p>

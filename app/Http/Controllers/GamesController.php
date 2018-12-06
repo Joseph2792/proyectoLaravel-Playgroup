@@ -7,6 +7,7 @@ use App\Http\Requests\GamesRequest;
 
 use App\Game;
 use App\Team;
+use App\User;
 
 class GamesController extends Controller
 {
@@ -39,7 +40,6 @@ class GamesController extends Controller
     // ESTE ES EL BLOQUE DE CODIGO QUE NOS PASO JAVI PARA RELACIONAR ID DE TEAMS CUANDO CREO UN GAME
     public function store(GamesRequest $request) // como type hint le paso el nombre del request propio
     {
-
       $game = new Game;
 
       $team1 = new Team;
@@ -58,6 +58,8 @@ class GamesController extends Controller
       $game->date = $request->input('date');
       $game->team1_id = $team1->id;
       $game->team2_id = $team2->id;
+
+      $game->user_id = auth()->user()->id;
 
       $game->save();
 

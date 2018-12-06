@@ -56,7 +56,7 @@ class UsersController extends Controller
     {
         $user = User::find($id);
 
-        return redirect('users.profile')->with(compact('user'));
+        return view('users.profile')->with(compact('user'));
     }
 
     /**
