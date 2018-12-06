@@ -113,11 +113,11 @@
                             class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
                             required autofocus
                         >
+                        <span class="invalid-feedback" role="alert">
                         @if ($errors->has('name'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('name') }}</strong>
-                            </span>
+                          <strong>{{ $errors->first('name') }}</strong>
                         @endif
+                        </span>
                     </div>
 
                     <div class="formlogin-control col-sm-12 col-md-6">
@@ -147,11 +147,11 @@
                             class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
                             required
                         >
+                        <span class="invalid-feedback" role="alert">
                         @if ($errors->has('email'))
-                            <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('email') }}</strong>
-                            </span>
                         @endif
+                        </span>
                     </div>
                     <div class="formlogin-control col-sm-12 col-md-6">
                         <label>Nacionalidad</label>
@@ -181,11 +181,11 @@
                             required
                         >
 
+                        <span class="invalid-feedback" role="alert">
                         @if ($errors->has('password'))
-                            <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('password') }}</strong>
-                            </span>
                         @endif
+                        </span>
 
                     </div>
                     <div class="formlogin-control col-sm-12 col-md-6">
@@ -214,6 +214,13 @@
                             class="form-control"
                             name="password_confirmation"
                             placeholder="Contraseña" required>
+
+                            <span class="invalid-feedback" role="alert">
+                            @if ($errors->has('password-confirmation'))
+                                    <strong>{{ $errors->first('password_confirmation') }}</strong>
+                            @endif
+                            </span>
+
 
                     </div>
                     <div class="formlogin-control col-sm-12 col-md-6">

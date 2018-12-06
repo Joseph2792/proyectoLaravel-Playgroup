@@ -26,7 +26,7 @@ window.onload = function () {
 
     if (this.value.trim() === '') {
         this.classList.add('is-invalid');
-        error.innerText = "El campo " + nombreCampo + " es obligatorio.";
+        error.innerText = "Este campo es obligatorio.";
     } else {
         error.innerText = "";
         this.classList.remove('is-invalid');
@@ -40,7 +40,7 @@ window.onload = function () {
 
     if (this.value.trim() === '') {
         this.classList.add('is-invalid');
-        error.innerText = "El campo " + nombreCampo + " es obligatorio.";
+        error.innerText = "Este campo es obligatorio.";
     } else if (!regexEmail.test(this.value.trim())){
         error.innerText = "Debes ingresar un formato de email válido."
     } else {
