@@ -156,7 +156,8 @@
                     <div class="formlogin-control col-sm-12 col-md-6">
                         <label>Nacionalidad</label>
                         <select name="registerCountry"
-                            class="form-control"
+                          class="form-control"
+                          id="countrySelect"
                             >
                             <option value="">Elegí un país</option>
 
@@ -189,11 +190,12 @@
 
                     </div>
                     <div class="formlogin-control col-sm-12 col-md-6">
-                        <label>Ciudad</label>
+                        <label>Provincia</label>
                         <select name="registerCity"
                             class="form-control"
+                            id="prov"
                             >
-                            <option value="">Elegí una ciudad</option>
+                            <option value="">Elegí una provincia</option>
 
                             </option>
 
@@ -245,6 +247,7 @@
 
             </form>
         <script src="js/register.js"></script>
+        <script src="js/countries.js"></script>
         </section>
     </div>
 

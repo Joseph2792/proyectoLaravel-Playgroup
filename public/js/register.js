@@ -14,7 +14,6 @@ window.onload = function () {
   var campoEmail = formulario.email;
   var campoPassword = formulario.password;
   var campoRegisterCountry = formulario.registerCountry;
-  var campoRegisterCity = formulario.registerCity;
   var campoPasswordConfirmation = formulario.password_confirmation;
   // var campoRegisterAvatar = formulario.registerAvatar;
   // var finalData = {};
@@ -54,8 +53,7 @@ window.onload = function () {
   campoEmail.addEventListener('blur', validateEmptyAndEmail);
   campoPassword.addEventListener('blur', validateEmpty);
   campoRegisterCountry.addEventListener('blur', validateEmpty);
-  campoRegisterCity.addEventListener('blur', validateEmpty);
-  campoPasswordConfirmation.addEventListener('blur', validateEmpty);
+    campoPasswordConfirmation.addEventListener('blur', validateEmpty);
 
   campoPasswordConfirmation.addEventListener('change', function(){
     var error = this.parentElement.querySelector('.invalid-feedback');
@@ -77,8 +75,7 @@ window.onload = function () {
           campoEmail.value.trim() === "" ||
           campoPassword.value.trim() === "" ||
           campoRegisterCountry.value.trim() === "" ||
-          campoPasswordConfirmation.value.trim() === "" ||
-          campoRegisterCity.value.trim() === ""
+          campoPasswordConfirmation.value.trim() === "" 
         )  {
             campos.forEach(function (campo){
               var error = campo.parentElement.querySelector('.invalid-feedback');
@@ -101,6 +98,9 @@ window.onload = function () {
           });
     }
   });
+
+
+
 
 
 };
