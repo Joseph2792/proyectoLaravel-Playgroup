@@ -15,13 +15,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style-playgroup.css')}}">
-    
+
 </head>
 <body>
     @include('layouts.navbar')
-    
-    @yield('main-content')
 
+    @yield('main-content')
+      
      <!-- Librería de jQuery -->
      <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
 </body>

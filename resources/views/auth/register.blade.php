@@ -98,7 +98,7 @@
 <!--contenido de las secciones: login y registro home, amigos, faq, perfil-->
     <div class="container-main container-fluid">
         <section id="registro" class="flexregistry">
-            <form action="{{ route('register') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('register') }}" method="post" class="register-form" enctype="multipart/form-data">
             @csrf
                 <h2>Registrate</h2>
                 <div class="row">
@@ -190,10 +190,10 @@
                     </div>
                     <div class="formlogin-control col-sm-12 col-md-6">
                         <label>Ciudad</label>
-                        <select name="registerCountry"
+                        <select name="registerCity"
                             class="form-control"
                             >
-                            <option value="">Elegí un país</option>
+                            <option value="">Elegí una ciudad</option>
 
                             </option>
 
@@ -226,7 +226,7 @@
                             >
                             <label class="custom-file-label update-img">Elegí una foto...</label>
                             <div class="invalid-feedback">
-                                
+
                             </div>
                         </div>
                     </div>
@@ -237,7 +237,9 @@
                 </div>
 
             </form>
+        <script src="js/register.js"></script>
         </section>
     </div>
+
 <!--fin del contenido-->
 @endsection
