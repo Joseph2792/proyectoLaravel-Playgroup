@@ -29,11 +29,8 @@
                     <span>Ayuda</span>
                 </a>
             @else
-<<<<<<< HEAD
                 <a class="ico-nav" href="perfil.php" title="Mi Perfil">
-=======
                 <a class="ico-nav" href="route('profile')" title="Mi Perfil">
->>>>>>> d260ccd270b3a60b6b971cf0a86b1793b40e5670
                     <img class="user-photo-nav" src="/storage/{{ Auth::user()->avatar }}" alt="">
                     <span>{{ Auth::user()->name }}</span>
                 </a>
@@ -112,11 +109,7 @@
                     <i class="fa fa-question-circle"></i>
                     <span>Ayuda</span>
                 </a>
-<<<<<<< HEAD
-                <a class="ico-nav" href="perfil.php" title="Mi Perfil">
-=======
                 <a class="ico-nav" href="/user" title="Mi Perfil">
->>>>>>> d260ccd270b3a60b6b971cf0a86b1793b40e5670
                     <img class="user-photo-navdesk" src="/storage/{{ Auth::user()->avatar }}" alt="">
                     <span>{{ Auth::user()->name }}</span>
                 </a>
