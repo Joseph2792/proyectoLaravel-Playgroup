@@ -29,17 +29,17 @@
                     <span>Ayuda</span>
                 </a>
             @else
+<<<<<<< HEAD
                 <a class="ico-nav" href="perfil.php" title="Mi Perfil">
+=======
+                <a class="ico-nav" href="route('profile')" title="Mi Perfil">
+>>>>>>> d260ccd270b3a60b6b971cf0a86b1793b40e5670
                     <img class="user-photo-nav" src="/storage/{{ Auth::user()->avatar }}" alt="">
                     <span>{{ Auth::user()->name }}</span>
                 </a>
                 <a class="ico-nav" href="{{ route('home') }}" title="Home">
                     <i class="fa fa-home"></i>
                     <span>Inicio</span>
-                </a>
-                <a class="ico-nav" href="time-line.php" title="Mis Publicaciones">
-                    <i class="fa fa-user"></i>
-                    <span>Mis Post</span>
                 </a>
                 <a class="ico-nav" href="listado-amigos.php" title="Mis Amigos">
                     <i class="fas fa-users"></i>
@@ -54,7 +54,7 @@
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Cerrar Sesión</span>
                 </a>
-                <form id="logout-form" action="{{ route('login') }}" method="POST" style="display: none;">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
 
@@ -96,10 +96,6 @@
                     <i class="fa fa-home"></i>
                     <span>Inicio</span>
                 </a>
-                <a class="ico-nav" href="time-line.php" title="Mis Publicaciones">
-                    <i class="fa fa-user"></i>
-                    <span>Mis Post</span>
-                </a>
                 <a class="ico-nav" href="listado-amigos.php" title="Mis Amigos">
                     <i class="fas fa-users"></i>
                     <span>Amigos</span>
@@ -116,7 +112,11 @@
                     <i class="fa fa-question-circle"></i>
                     <span>Ayuda</span>
                 </a>
+<<<<<<< HEAD
                 <a class="ico-nav" href="perfil.php" title="Mi Perfil">
+=======
+                <a class="ico-nav" href="/user" title="Mi Perfil">
+>>>>>>> d260ccd270b3a60b6b971cf0a86b1793b40e5670
                     <img class="user-photo-navdesk" src="/storage/{{ Auth::user()->avatar }}" alt="">
                     <span>{{ Auth::user()->name }}</span>
                 </a>
