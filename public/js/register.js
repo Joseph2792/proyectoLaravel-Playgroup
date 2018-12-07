@@ -10,10 +10,10 @@ window.onload = function () {
   const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
   var campoName = formulario.name;
-  var campoRegisterNickname = formulario.registerNickname;
+  var campoNickname = formulario.nickname;
   var campoEmail = formulario.email;
   var campoPassword = formulario.password;
-  var campoRegisterCountry = formulario.registerCountry;
+  var campoCountry = formulario.country;
   var campoPasswordConfirmation = formulario.password_confirmation;
   // var campoRegisterAvatar = formulario.registerAvatar;
   // var finalData = {};
@@ -49,11 +49,11 @@ window.onload = function () {
   }
 
   campoName.addEventListener('blur', validateEmpty);
-  campoRegisterNickname.addEventListener('blur', validateEmpty);
+  campoNickname.addEventListener('blur', validateEmpty);
   campoEmail.addEventListener('blur', validateEmptyAndEmail);
   campoPassword.addEventListener('blur', validateEmpty);
-  campoRegisterCountry.addEventListener('blur', validateEmpty);
-    campoPasswordConfirmation.addEventListener('blur', validateEmpty);
+  campoCountry.addEventListener('blur', validateEmpty);
+  campoPasswordConfirmation.addEventListener('blur', validateEmpty);
 
   campoPasswordConfirmation.addEventListener('change', function(){
     var error = this.parentElement.querySelector('.invalid-feedback');
@@ -68,14 +68,13 @@ window.onload = function () {
   });
 
   formulario.addEventListener('submit', function(ev) {
-    ev.preventDefault();
     if (
           campoName.value.trim() === "" ||
-          campoRegisterNickname.value.trim() === "" ||
+          campoNickname.value.trim() === "" ||
           campoEmail.value.trim() === "" ||
           campoPassword.value.trim() === "" ||
-          campoRegisterCountry.value.trim() === "" ||
-          campoPasswordConfirmation.value.trim() === "" 
+          campoCountry.value.trim() === "" ||
+          campoPasswordConfirmation.value.trim() === ""
         )  {
             campos.forEach(function (campo){
               var error = campo.parentElement.querySelector('.invalid-feedback');
@@ -85,16 +84,19 @@ window.onload = function () {
                 error.innerText = "El campo " + nombreCampo + " es obligatorio";
               }
             });
+            ev.preventDefault();
     } else if (
           campoPasswordConfirmation.value !== campoPassword.value) {
               campoPassword.classList.add('is-invalid');
               campoPasswordConfirmation.parentElement.querySelector('.invalid-feedback').innerText = "Las contraseñas no coinciden.";
+              ev.preventDefault();
     } else {
           campos.forEach(function (campo) {
             var error = campo.parentElement.querySelector('.invalid-feedback');
             campo.classList.remove('is-invalid');
             campo.value = "";
             error.innerText = "";
+            this.unbind('submit').submit();
           });
     }
   });

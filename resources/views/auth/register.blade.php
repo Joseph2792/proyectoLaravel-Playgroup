@@ -124,8 +124,8 @@
                         <label>Usuario</label>
                         <input
                             type="text"
-                            name="registerNickname"
-                            value=""
+                            name="nickname"
+                            value="{{ old('nickname') }}"
                             placeholder="Nombre de usuario"
                             class="form-control"
                         >
@@ -155,8 +155,9 @@
                     </div>
                     <div class="formlogin-control col-sm-12 col-md-6">
                         <label>Nacionalidad</label>
-                        <select name="registerCountry"
+                        <select name="country"
                           class="form-control"
+                          value="{{ old('country') }}"
                           id="countrySelect"
                             >
                             <option value="">Elegí un país</option>
@@ -191,7 +192,7 @@
                     </div>
                     <div class="formlogin-control col-sm-12 col-md-6" id="prov">
                         <label>Provincia</label>
-                        <select name="registerProv"
+                        <select name="province"
                             class="form-control"
                             id="provSelect"
                             >
