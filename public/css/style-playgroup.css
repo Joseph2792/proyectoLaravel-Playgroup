@@ -448,6 +448,7 @@ header{
 	flex-direction: row;
 	padding: 10px 30px;
 	font-size: 20px;
+	justify-content: space-between;
 }
 
 .post-footer a{
