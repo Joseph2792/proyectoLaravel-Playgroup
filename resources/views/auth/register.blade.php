@@ -190,7 +190,7 @@
                         </span>
 
                     </div>
-                    <div class="formlogin-control col-sm-12 col-md-6" id="prov">
+                    <div class="formlogin-control col-sm-12 col-md-6">
                         <label>Provincia</label>
                         <select name="province"
                             class="form-control"

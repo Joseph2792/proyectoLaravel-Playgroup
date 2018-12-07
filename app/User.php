@@ -17,12 +17,12 @@ class User extends Authenticatable
      */
 
     protected $fillable = [
-        'name', 
-        'email', 
-        'password', 
+        'name',
+        'email',
+        'password',
         'nickname', 
-        'country', 
-        'city', 
+        'country',
+        'province',
         'avatar',
     ];
 
@@ -39,10 +39,6 @@ class User extends Authenticatable
    public function games() {
      return $this->hasMany(Game::class);
    }
-<<<<<<< HEAD
-}
-=======
 
 
 }
->>>>>>> 92de7f4094bfe9fb3a8470541e4cf00e3a172f9a

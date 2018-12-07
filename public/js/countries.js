@@ -1,7 +1,6 @@
 
 var countrySelect = document.querySelector('#countrySelect');
 var provSelect = document.querySelector('#provSelect');
-var prov = document.querySelector('#prov');
 
   function ajaxCall (url, callback) {
     window.fetch(url)

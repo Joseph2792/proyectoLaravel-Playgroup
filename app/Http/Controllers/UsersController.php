@@ -40,7 +40,13 @@ class UsersController extends Controller
     {
         $user = new User;
 
-        $user = User::create($request->all());
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');
+        $user->nickname = $request->input('nickname');
+        $user->country = $request->input('country');
+        $user->province = $request->input('province');
+        $user->avatar = $request->input('avatar');
         $user->save();
 
         return redirect('welcome');

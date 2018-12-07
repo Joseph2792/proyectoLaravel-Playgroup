@@ -11,13 +11,7 @@ class Game extends Model
   protected $dates = ['date'];
 
   public function user() {
-<<<<<<< HEAD
-    return $this->hasOne(User::class, 'id', 'user_id');
-  }
-}
-=======
     return $this->belongsTo(User::class, 'id', 'user_id');
   }
 
 }
->>>>>>> 92de7f4094bfe9fb3a8470541e4cf00e3a172f9a
