@@ -21,7 +21,7 @@
     @include('layouts.navbar')
 
     @yield('main-content')
-      
+
      <!-- Librería de jQuery -->
      <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
 </body>
