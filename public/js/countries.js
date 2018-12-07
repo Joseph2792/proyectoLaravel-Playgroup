@@ -1,7 +1,7 @@
 
 var countrySelect = document.querySelector('#countrySelect');
-console.log(countrySelect);
-// var prov = document.getElementById('prov');
+var provSelect = document.querySelector('#provSelect');
+var prov = document.querySelector('#prov');
 
   function ajaxCall (url, callback) {
     window.fetch(url)
@@ -23,22 +23,22 @@ console.log(countrySelect);
     }
   }
 
+  function getProvinces (provinces) {
+    for (var prov of provinces) {
+      var option = '<option>' + prov.state + '</option>';
+      provSelect.innerHTML += option;
+    }
+  }
+
+  countrySelect.addEventListener('change', function () {
+    if (this.value !== 'Argentina') {
+      provSelect.setAttribute('disabled', '');
+      provSelect.innerHTML = '';
+    } else {
+      provSelect.removeAttribute('disabled');
+      ajaxCall('https://dev.digitalhouse.com/api/getProvincias', getProvinces);
+    }
+  });
+
+
   ajaxCall('https://restcountries.eu/rest/v2/all', getCountries);
-
-
-// function getcities (provinces) {
-//   for (var prov of provinces) {
-//     var option = '<option>' + prov.state + '</option>';
-//     prov.innerHTML += option;
-//   }
-// }
-
-//
-// country.addEventListener('change', function () {
-//   if (this.value === 'Argentina') {
-//     prov.style.display = 'inline-block';
-//     ajaxCall('https://dev.digitalhouse.com/api/getProvincias', getcities);
-//   } else {
-//       prov.innerHTML = '';
-//       prov.style.display = 'none';
-//   }

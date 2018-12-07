@@ -189,11 +189,11 @@
                         </span>
 
                     </div>
-                    <div class="formlogin-control col-sm-12 col-md-6">
+                    <div class="formlogin-control col-sm-12 col-md-6" id="prov">
                         <label>Provincia</label>
-                        <select name="registerCity"
+                        <select name="registerProv"
                             class="form-control"
-                            id="prov"
+                            id="provSelect"
                             >
                             <option value="">Elegí una provincia</option>
 
