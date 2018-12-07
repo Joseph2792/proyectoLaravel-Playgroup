@@ -98,7 +98,7 @@
 <!--contenido de las secciones: login y registro home, amigos, faq, perfil-->
     <div class="container-main container-fluid">
         <section id="registro" class="flexregistry">
-            <form action="{{ route('register') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('register') }}" method="post" class="register-form" enctype="multipart/form-data">
             @csrf
                 <h2>Registrate</h2>
                 <div class="row">
@@ -113,19 +113,19 @@
                             class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
                             required autofocus
                         >
+                        <span class="invalid-feedback" role="alert">
                         @if ($errors->has('name'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('name') }}</strong>
-                            </span>
+                          <strong>{{ $errors->first('name') }}</strong>
                         @endif
+                        </span>
                     </div>
 
                     <div class="formlogin-control col-sm-12 col-md-6">
                         <label>Usuario</label>
                         <input
                             type="text"
-                            name="registerNickname"
-                            value=""
+                            name="nickname"
+                            value="{{ old('nickname') }}"
                             placeholder="Nombre de usuario"
                             class="form-control"
                         >
@@ -147,16 +147,18 @@
                             class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
                             required
                         >
+                        <span class="invalid-feedback" role="alert">
                         @if ($errors->has('email'))
-                            <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('email') }}</strong>
-                            </span>
                         @endif
+                        </span>
                     </div>
                     <div class="formlogin-control col-sm-12 col-md-6">
                         <label>Nacionalidad</label>
-                        <select name="registerCountry"
-                            class="form-control"
+                        <select name="country"
+                          class="form-control"
+                          value="{{ old('country') }}"
+                          id="countrySelect"
                             >
                             <option value="">Elegí un país</option>
 
@@ -181,19 +183,20 @@
                             required
                         >
 
+                        <span class="invalid-feedback" role="alert">
                         @if ($errors->has('password'))
-                            <span class="invalid-feedback" role="alert">
                                 <strong>{{ $errors->first('password') }}</strong>
-                            </span>
                         @endif
+                        </span>
 
                     </div>
                     <div class="formlogin-control col-sm-12 col-md-6">
-                        <label>Ciudad</label>
-                        <select name="registerCountry"
+                        <label>Provincia</label>
+                        <select name="province"
                             class="form-control"
+                            id="provSelect"
                             >
-                            <option value="">Elegí un país</option>
+                            <option value="">Elegí una provincia</option>
 
                             </option>
 
@@ -215,6 +218,13 @@
                             name="password_confirmation"
                             placeholder="Contraseña" required>
 
+                            <span class="invalid-feedback" role="alert">
+                            @if ($errors->has('password-confirmation'))
+                                    <strong>{{ $errors->first('password_confirmation') }}</strong>
+                            @endif
+                            </span>
+
+
                     </div>
                     <div class="formlogin-control col-sm-12 col-md-6">
                         <label><b>Imagen de perfil</b></label>
@@ -226,7 +236,7 @@
                             >
                             <label class="custom-file-label update-img">Elegí una foto...</label>
                             <div class="invalid-feedback">
-                                
+
                             </div>
                         </div>
                     </div>
@@ -237,7 +247,10 @@
                 </div>
 
             </form>
+        <script src="js/register.js"></script>
+        <script src="js/countries.js"></script>
         </section>
     </div>
+
 <!--fin del contenido-->
 @endsection

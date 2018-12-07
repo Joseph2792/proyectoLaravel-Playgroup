@@ -29,6 +29,7 @@
                     <span>Ayuda</span>
                 </a>
             @else
+                <a class="ico-nav" href="perfil.php" title="Mi Perfil">
                 <a class="ico-nav" href="route('profile')" title="Mi Perfil">
                     <img class="user-photo-nav" src="/storage/{{ Auth::user()->avatar }}" alt="">
                     <span>{{ Auth::user()->name }}</span>

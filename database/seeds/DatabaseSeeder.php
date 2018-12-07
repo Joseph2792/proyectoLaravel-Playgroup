@@ -11,6 +11,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+      $games = factory(App\Game::class)->times(20)->create();
+
+      for ($i = 0; $i < count($games); $i++) {
+	      $user = $user[rand(1,20)];
+	      $user->games()->save($games[$i]);
+      }
     }
 }
