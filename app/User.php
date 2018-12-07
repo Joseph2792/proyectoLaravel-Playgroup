@@ -15,8 +15,15 @@ class User extends Authenticatable
      *
      * @var array
      */
+
     protected $fillable = [
-        'name', 'email', 'password', 'nickname', 'country', 'city', 'avatar',
+        'name', 
+        'email', 
+        'password', 
+        'nickname', 
+        'country', 
+        'city', 
+        'avatar',
     ];
 
     /**
@@ -24,6 +31,7 @@ class User extends Authenticatable
      *
      * @var array
      */
+
     protected $hidden = [
         'password', 'remember_token',
     ];
@@ -31,4 +39,10 @@ class User extends Authenticatable
    public function games() {
      return $this->hasMany(Game::class);
    }
+<<<<<<< HEAD
 }
+=======
+
+
+}
+>>>>>>> 92de7f4094bfe9fb3a8470541e4cf00e3a172f9a

@@ -38,14 +38,17 @@
         </div>
         <div class="col-12">
             <br>
-            <a href="/games/{{ $game->id }}/edit" class="btn">Editar Partido</a>
 
-            <form action="{{ route('games.destroy', $game->id) }}" method="post">
-                @csrf
-                {{ method_field('DELETE') }}
-                <br>
-                <button type="submit" class="btn-danger">Borrar Partido</button>
-            </form>
+            @auth
+                <a href="/games/{{ $game->id }}/edit" class="btn">Editar Partido</a>
+                
+                <form action="{{ route('games.destroy', $game->id) }}" method="post">
+                    @csrf
+                    {{ method_field('DELETE') }}
+                    <br>
+                    <button type="submit" class="btn-danger">Borrar partido</button>
+                </form>
+            @endauth
 
         </div>
     </div>

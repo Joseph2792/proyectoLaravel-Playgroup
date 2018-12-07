@@ -109,7 +109,7 @@
                     <i class="fa fa-question-circle"></i>
                     <span>Ayuda</span>
                 </a>
-                <a class="ico-nav" href="/user" title="Mi Perfil">
+                <a class="ico-nav" href="/users/{{ Auth::user()->id }}" title="Mi Perfil">
                     <img class="user-photo-navdesk" src="/storage/{{ Auth::user()->avatar }}" alt="">
                     <span>{{ Auth::user()->name }}</span>
                 </a>

@@ -7,6 +7,7 @@ use App\Http\Requests\GamesRequest;
 
 use App\Game;
 use App\Team;
+use App\User;
 
 class GamesController extends Controller
 {
@@ -39,7 +40,6 @@ class GamesController extends Controller
     // ESTE ES EL BLOQUE DE CODIGO QUE NOS PASO JAVI PARA RELACIONAR ID DE TEAMS CUANDO CREO UN GAME
     public function store(GamesRequest $request) // como type hint le paso el nombre del request propio
     {
-
       $game = new Game;
 
       $team1 = new Team;
@@ -58,6 +58,8 @@ class GamesController extends Controller
       $game->date = $request->input('date');
       $game->team1_id = $team1->id;
       $game->team2_id = $team2->id;
+
+      $game->user_id = auth()->user()->id;
 
       $game->save();
 
@@ -86,7 +88,7 @@ class GamesController extends Controller
     public function edit($id)
     {
 
-      $game = Game::findOrFail($id);        //busco el game que quiero modificar
+      $game = Game::findOrFail($id);//busco el game que quiero modificar
 
       return view('games.edit')->with(compact('game'));
     }
@@ -110,7 +112,7 @@ class GamesController extends Controller
 
       $game->save();
 
-      return redirect('home')->with('game');
+      return redirect('home')->with('edited', "Partido editado: $game->title");
     }
 
     /**
@@ -121,9 +123,24 @@ class GamesController extends Controller
      */
     public function destroy($id)
     {
-      $game = Game::find($id);
-      $game->delete();
+      try {
+        $game = Game::findOrFail($id);
 
-      return redirect('home');
+        $title = $game->title;
+
+        $team1 = Team::findOrFail($game->team1_id);
+        $team1->delete();
+
+        $team2 = Team::findOrFail($game->team2_id);
+        $team2->delete();
+
+        $game->delete();
+        // Al hacer redirect se guarda en SESSION una posición deleted con el valor indicado
+        return redirect('home')->with('deleted', "Partido eliminado: $title");
+
+      } catch (\Exception $e) {
+        return redirect('/game/'.$id)->with('errorDeleted', 'No se pudo eliminar :(');
+      }
+
     }
 }
