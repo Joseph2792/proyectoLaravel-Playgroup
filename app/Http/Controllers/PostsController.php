@@ -26,7 +26,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('posts.createPost');        // en esta vista está el form de creación de post
+        return view('posts.create');        // en esta vista está el form de creación de post
     }
 
     /**
@@ -38,8 +38,28 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $post = new Post;                       // instancio un objeto Post
-        Post::create($request->all());          // le pido todos los inputs de la vista createPost, donde tengo el form de crear nuevo post
-        $post->save();                          // guardo
+       
+        $post->title = $request->title;
+		$movie->rating = $request->rating;
+		$movie->awards = $request->awards;
+		$movie->genre_id = $request->genre_id;
+		$movie->release_date = $request->release_date;
+
+		// Necesito el archivo en una variable esta vez
+		$file = $request->file("poster");
+
+		// Nombre final de la imagen
+		$finalName = strtolower(str_replace(" ", "_", $request->input("title")));
+
+		// Armo un nombre único para este archivo
+		$name = $finalName . uniqid('_image_') . "." . $file->extension();
+
+		// Guardo el archivo en la carpeta
+		$file->storePubliclyAs("public/posters", $name);
+
+		// Guardo en base de datos el nombre de la imagen
+		$movie->poster = $name;
+		$movie->save();
 
         return redirect('home')->with(compact('post'));  // redirijo a Home, donde están todos los posts
 
